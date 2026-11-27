@@ -1,0 +1,17 @@
+CHILL SKILLS - cómo ponerla en internet (gratis) y que salga en Google
+
+1) Crea una cuenta gratis en https://github.com (si no tienes).
+2) Pulsa "+" > "New repository". Nombre: chill-skills. Público. "Create repository".
+3) Pulsa "uploading an existing file" y arrastra TODO lo que hay dentro de esta carpeta
+   (index.html, data.js, img, media, logo.svg...). Pulsa "Commit changes".
+4) En el repositorio: Settings > Pages > Branch: main / (root) > Save.
+   En 1-2 minutos tu web estará en:  https://TU-USUARIO.github.io/chill-skills/
+5) Para Google: entra en https://search.google.com/search-console
+   - "Añadir propiedad" > "Prefijo de la URL" > pega tu dirección de arriba.
+   - Verifica con la opción "Etiqueta HTML" (Claude te la puede meter en index.html)
+   - Arriba, en "Inspeccionar URL", pega tu dirección y pulsa "Solicitar indexación".
+   Google tarda de unos días a un par de semanas en mostrarla.
+6) Comparte el enlace (TikTok, Discord, YouTube...). Cuantos más sitios enlacen a tu web, antes y más arriba sale.
+
+Nota: la galería "Comunidad" (subir fotos) solo funciona dentro de Claude.
+En GitHub la web se ve entera, pero esa parte muestra un aviso.

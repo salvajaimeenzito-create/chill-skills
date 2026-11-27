@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chill Skills · Skills gratis para Claude y Roblox</title>
+<meta name="description" content="Marketplace gratis de skills para Claude: crea juegos de Roblox, modelos vóxel, bosses, VFX, documentos, diseños y código. Busca, pulsa Agregar y Claude aprende a hacerlo.">
+<meta name="keywords" content="skills Claude, Claude skills, Roblox, Claude Code, Roblox Studio, modelos vóxel, marketplace, plugins Claude, LihFolk">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#09080d">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chill Skills · Skills gratis para Claude y Roblox">
+<meta property="og:description" content="Busca una skill, pulsa Agregar y Claude aprende a hacer juegos de Roblox, modelos vóxel, documentos, diseños y código.">
+<meta property="og:image" content="thumb.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="logo.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Chill Skills","description":"Marketplace gratis de skills para Claude y Roblox","inLanguage":["es","en","pt","fr"]}</script>
+<link rel="artifact-thumbnail" href="thumb.jpg">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE  occasion: a game-studio skill shop, cinematic and alive
+   IDEA   a VFX artist's viewport at night: every skill is a glowing effect card, the hero is a live particle sim
+   PICTURE a real-time canvas: energy core, embers, sparks with gravity bouncing on a wet floor, click explosions
+   COLOUR near-black ink-violet ground, fire orange leads, energy cyan supports, hot pink accent
+   TYPE   Unbounded (bold game lettering) + Manrope
+   LAYOUT title over the left of the sim, core on the right; Roblox aisle rail; filter grid; tutorials; install */
+:root{color-scheme:dark;--bg:#09080d;--bg2:#110f18;--card:#15121e;--card2:#1c1828;--line:#2a2438;--ink:#f4f0fa;--soft:#a89fb8;
+--fire:#ff7a1a;--fire2:#ff3d2e;--cyan:#38e1ff;--pink:#ff3d7f;--ok:#2bd47a}
+*{box-sizing:border-box;min-width:0}
+[hidden]{display:none!important}
+html{scroll-padding-top:76px;scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Manrope,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:Unbounded,Manrope,sans-serif;line-height:1.08;letter-spacing:-.02em;margin:0}
+a{color:inherit}button,select{font:inherit;color:inherit;cursor:pointer}
+img{max-width:100%}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
+nav{position:fixed;top:0;left:0;right:0;z-index:40;background:linear-gradient(#09080dee,#09080d99);backdrop-filter:blur(12px);border-bottom:1px solid #ffffff10}
+nav .wrap{display:flex;align-items:center;gap:12px;min-height:64px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font:800 17px Unbounded,sans-serif;text-decoration:none}
+.logo img{width:32px;height:32px;display:block;filter:drop-shadow(0 0 14px #ff6a2a88)}
+.links{display:flex;gap:20px;margin-left:auto;flex-wrap:wrap}
+.links a{text-decoration:none;font-weight:800;color:var(--soft)}.links a:hover{color:#fff}
+.ctl{border:1px solid var(--line);background:var(--card);border-radius:12px;min-height:44px;min-width:44px;display:grid;place-items:center;padding:0 10px;font-weight:800}
+.ctl svg{width:20px;height:20px}
+select.ctl{appearance:none;padding:0 12px;text-align:center}
+.ctl#mus.playing{color:#ffb36a;box-shadow:0 0 18px #ff8a3c44}
+.mine{border:0;background:linear-gradient(135deg,var(--fire),var(--fire2));border-radius:12px;padding:0 16px;font-weight:800;min-height:44px;box-shadow:0 0 24px #ff5a2a55}
+/* hero */
+.hero{position:relative;height:min(92svh,780px);min-height:560px;overflow:hidden;background:#07060b}
+#fx{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:crosshair}
+.hero .wrap{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;pointer-events:none}
+.hero .lead{max-width:620px;pointer-events:auto}
+.hero h1{font-size:clamp(36px,5.6vw,68px);text-wrap:balance}
+.hero h1 span{background:linear-gradient(90deg,#ffe1a8,var(--fire) 50%,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:18px;color:#d9d0e6;margin:16px 0 22px;max-width:50ch;text-shadow:0 2px 12px #000}
+.search{display:flex;align-items:center;gap:10px;background:#16121fcc;border:1px solid #ffffff24;border-radius:16px;padding:0 16px;max-width:560px}
+.search svg{width:22px;height:22px;flex:none;color:var(--soft)}
+.search input{border:0;background:none;outline:0;font:17px Manrope,sans-serif;color:#fff;padding:16px 0;width:100%}
+.search input::placeholder{color:#b9aecb}
+.search:focus-within{border-color:var(--fire);box-shadow:0 0 0 3px #ff7a1a44}
+.counts{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.count{border:1px solid #ffffff1f;background:#ffffff0d;border-radius:12px;padding:6px 12px;font-weight:800;white-space:nowrap;color:#e7def2}
+.count b{font:700 20px Unbounded,sans-serif;margin-right:6px;color:#fff}
+.hint{white-space:nowrap;position:absolute;right:max(5vw,16px);bottom:22px;z-index:2;font-size:13px;font-weight:800;color:#cfc4de;background:#00000066;border:1px solid #ffffff1a;border-radius:999px;padding:6px 12px;pointer-events:none}
+@media(max-width:999px){.hero{height:auto;min-height:720px}.hero .wrap{justify-content:flex-start;padding-top:92px;padding-bottom:300px}.hint{left:50%;right:auto;transform:translateX(-50%)}}
+@media(max-width:700px){.hero h1{font-size:34px}.hero p{font-size:16px}}
+/* sections */
+.band{padding:clamp(40px,6vw,80px) 0}
+.shead{display:flex;gap:16px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px}
+.shead h2{font-size:clamp(28px,4.2vw,46px)}
+.shead p{margin:10px 0 0;color:var(--soft);max-width:60ch}
+.roblox{background:radial-gradient(ellipse at 15% 0%,#3a1530 0,transparent 55%),radial-gradient(ellipse at 95% 30%,#0f2d3d 0,transparent 50%),var(--bg2);border-block:1px solid #ffffff0d}
+.roblox h2 em{font-style:normal;color:var(--fire)}
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:6px 0 6px}
+.gallery figure{margin:0;border-radius:18px;overflow:hidden;position:relative;aspect-ratio:4/3;border:1px solid #ffffff18;background:#1a2a1a}
+.gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.gallery figure:hover img{transform:scale(1.07)}
+.gallery figcaption{position:absolute;left:10px;bottom:10px;font-size:13px;font-weight:800;background:#000a;border-radius:999px;padding:3px 10px}
+@media(max-width:700px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.seg{display:flex;background:#ffffff0f;border:1px solid #ffffff14;border-radius:14px;padding:4px;gap:4px;flex-wrap:wrap}
+.seg button{border:0;background:none;color:#d8cde6;border-radius:10px;padding:0 14px;min-height:42px;font-weight:800}
+.seg button[aria-pressed=true]{background:#fff;color:#111}
+.rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px 2px 14px;scrollbar-width:thin;scrollbar-color:#ffffff33 transparent}
+.rail>*{scroll-snap-align:start;flex:0 0 min(320px,82vw)}
+.railnav{display:flex;gap:10px;justify-content:flex-end}
+.railnav button{border:1px solid #ffffff1f;width:46px;height:46px;border-radius:14px;background:#ffffff0d;font-size:22px;font-weight:800}
+.railnav button:hover{background:var(--fire);border-color:var(--fire)}
+/* cards */
+.set{position:relative;background:var(--card);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--line);transition:transform .18s,box-shadow .25s,border-color .25s;will-change:transform}
+.set:hover{border-color:color-mix(in srgb,var(--h) 60%,transparent);box-shadow:0 0 0 1px color-mix(in srgb,var(--h) 40%,transparent),0 18px 50px -12px color-mix(in srgb,var(--h) 55%,transparent)}
+.thumb{aspect-ratio:16/10;position:relative;overflow:hidden;background:#000}
+.thumb img,.thumb svg{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.set:hover .thumb img,.set:hover .thumb svg{transform:scale(1.06)}
+.shine{position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,0%),#ffffff40,transparent 42%);opacity:0;transition:opacity .2s;pointer-events:none;mix-blend-mode:screen}
+.set:hover .shine{opacity:1}
+.tag{position:absolute;left:12px;top:12px;background:#000b;border:1px solid #ffffff26;color:#fff;border-radius:999px;padding:3px 10px;font-size:13px;font-weight:800;backdrop-filter:blur(6px)}
+.badge{position:absolute;right:12px;top:12px;border-radius:999px;padding:3px 10px;font-size:13px;font-weight:800;color:#fff}
+.b-mine{background:linear-gradient(135deg,var(--fire),var(--fire2))}.b-off{background:#3b3bb3}.b-com{background:#137a5c}
+.body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.body h3{font-size:19px}
+.by{font-size:13px;font-weight:800;color:var(--soft)}
+.body p{margin:0;color:#cfc6dc;font-size:15px}
+.meta{display:flex;gap:6px;flex-wrap:wrap}
+.meta b{font-size:13px;background:#ffffff0f;border:1px solid #ffffff12;border-radius:8px;padding:2px 8px;font-weight:700;white-space:nowrap;color:#d8cfe5}
+.acts{display:flex;gap:8px;margin-top:auto;padding-top:10px}
+.add{flex:1;border:0;border-radius:14px;background:linear-gradient(135deg,var(--fire),var(--fire2));color:#fff;font-weight:800;font-size:16px;min-height:48px;position:relative;overflow:hidden;box-shadow:0 8px 24px -8px #ff4a2a}
+.add::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,#ffffff55 50%,transparent 70%);transform:translateX(-120%);transition:transform .6s}
+.add:hover::after{transform:translateX(120%)}
+.add:active{transform:scale(.97)}
+.add.done{background:linear-gradient(135deg,#2bd47a,#139a56);box-shadow:0 8px 24px -8px #2bd47a}
+.more{border:1px solid var(--line);background:none;border-radius:14px;padding:0 14px;font-weight:800;min-height:48px}
+.more:hover{border-color:#ffffff55}
+/* grid */
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:0 14px;font-weight:800;min-height:44px;display:inline-flex;align-items:center;gap:8px}
+.chip i{width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 10px var(--c)}
+.chip[aria-pressed=true]{background:#fff;color:#111;border-color:#fff}
+.chip span{opacity:.55}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:18px;padding-top:12px}
+.empty{grid-column:1/-1;text-align:center;padding:50px;color:var(--soft);font-weight:800}
+.lnote{font-size:13px;color:var(--soft);margin:8px 0 0}
+/* tutorials */
+.tuts{background:var(--bg2);border-top:1px solid #ffffff0d}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:18px}
+.vid{display:flex;flex-direction:column;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:transform .2s,border-color .2s}
+.vid:hover{transform:translateY(-4px);border-color:var(--h)}
+.vthumb{aspect-ratio:16/9;position:relative;background:radial-gradient(circle at 70% 40%,color-mix(in srgb,var(--h) 70%,#000) 0,#0b0910 70%);overflow:hidden}
+.vthumb>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.vid:hover .vthumb>img{transform:scale(1.05)}
+.vthumb:has(img)::before{display:none}
+.vthumb:has(img) .yt{display:none}
+.vthumb:has(img) .play{left:auto;top:auto;right:12px;bottom:12px;margin:0;width:46px;height:46px;box-shadow:0 0 0 6px #ffffff2a,0 6px 20px #000a}
+.vthumb:has(img) .play svg{width:18px;height:18px}
+.vthumb::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,#ffffff07 0 1px,transparent 1px 28px),repeating-linear-gradient(0deg,#ffffff07 0 1px,transparent 1px 28px)}
+.play{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 0 0 10px #ffffff22,0 0 40px var(--h);transition:transform .25s}
+.vid:hover .play{transform:scale(1.12)}
+.play svg{width:24px;height:24px;margin-left:4px}
+.vthumb .lang{position:absolute;right:10px;top:10px;font-size:12px;font-weight:800;background:#000a;border-radius:999px;padding:2px 9px}
+.vthumb .yt{position:absolute;left:12px;bottom:10px;font:700 13px Unbounded,sans-serif;color:#fff;opacity:.85}
+.vbody{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.vbody h3{font:700 16px/1.3 Manrope,sans-serif}
+.vbody span{margin-top:auto;font-weight:800;color:var(--fire);font-size:14px}
+.vgroup{font:700 18px Unbounded,sans-serif;margin:26px 0 14px;color:#e7def2}
+/* how */
+.promo{border-radius:24px;overflow:hidden;border:1px solid #ffffff1f;box-shadow:0 40px 100px -30px #000,0 0 90px -30px #ff7a1a77;margin:0 0 26px;background:#000}
+.promo video{width:100%;display:block;aspect-ratio:16/9;background:#000}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:16px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;position:relative;overflow:hidden}
+.step::before{content:"";position:absolute;width:160px;height:160px;right:-50px;top:-60px;border-radius:50%;background:radial-gradient(var(--h),transparent 65%);opacity:.35}
+.step b{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:var(--h);color:#111;font:800 20px Unbounded,sans-serif;margin-bottom:12px;box-shadow:0 0 24px var(--h)}
+.step h3{font-size:18px;margin-bottom:6px}
+.step p{margin:0;color:#cfc6dc}
+.warnbox{margin-top:16px;color:var(--soft);font-size:14px}
+footer{padding:30px 0 44px;color:var(--soft);font-size:14px;border-top:1px solid #ffffff0d}
+footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
+/* dialog */
+dialog{border:1px solid var(--line);border-radius:26px;padding:0;width:min(660px,calc(100vw - 24px));max-height:calc(100dvh - 24px);background:var(--card);color:var(--ink);overflow:hidden}
+dialog[open]{animation:pop .3s cubic-bezier(.2,1.3,.4,1)}
+@keyframes pop{from{transform:scale(.92) translateY(10px);opacity:0}}
+dialog::backdrop{background:#05030acc;backdrop-filter:blur(4px)}
+.dwrap{display:flex;flex-direction:column;max-height:calc(100dvh - 24px)}
+.dcover{height:170px;position:relative;flex:none;background:#000}
+.dcover img,.dcover svg{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
+.x{position:absolute;right:12px;top:12px;border:1px solid #ffffff33;background:#000a;color:#fff;border-radius:12px;width:44px;height:44px;font-size:18px;font-weight:800;z-index:2}
+.db{padding:18px 22px 22px;overflow:auto}
+.db h3{font-size:26px;margin:4px 0 8px}
+.db p{color:#d8cfe5;margin:0 0 12px}
+.try{background:#ffffff0c;border:1px solid #ffffff14;border-left:3px solid var(--fire);border-radius:12px;padding:12px 14px;font-weight:700;margin-bottom:16px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.tab{border:1px solid var(--line);background:none;border-radius:12px;padding:0 14px;font-weight:800;min-height:44px}
+.tab[aria-selected=true]{background:#fff;color:#111;border-color:#fff}
+ol.inst{margin:0;padding-left:22px}ol.inst li{margin:8px 0}
+.code{display:flex;gap:8px;align-items:center;background:#07060b;border:1px solid #ffffff14;color:#ffd9c2;border-radius:12px;padding:8px 8px 8px 14px;margin:6px 0}
+.code code{flex:1;font:14px/1.45 ui-monospace,Consolas,monospace;overflow-wrap:anywhere}
+.copy{border:0;background:#ffffff1a;border-radius:10px;padding:0 12px;min-height:40px;font-weight:800;flex:none}
+.gh{display:inline-flex;gap:8px;align-items:center;text-decoration:none;font-weight:800;border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-top:10px}
+.gh:hover{border-color:#fff}
+.have{margin-top:16px;width:100%;border:0;background:linear-gradient(135deg,#2bd47a,#139a56);color:#fff;border-radius:14px;min-height:50px;font-weight:800;font-size:16px}
+.have.undo{background:none;border:1px solid var(--line)}
+.small{font-size:13px;color:var(--soft);margin:8px 0 0}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(140px);background:#fff;color:#111;padding:12px 20px;border-radius:999px;font-weight:800;transition:transform .35s cubic-bezier(.2,1.3,.4,1);z-index:60;max-width:calc(100vw - 32px);box-shadow:0 10px 40px #000}
+.toast.on{transform:translateX(-50%) translateY(0)}
+#burst{position:fixed;inset:0;pointer-events:none;z-index:70;width:100%;height:100%}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
+.builds{background:radial-gradient(ellipse at 80% 0%,#12263a 0,transparent 55%),var(--bg)}
+.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,190px),1fr));gap:14px}
+.bitem{position:relative;border:0;padding:0;border-radius:18px;overflow:hidden;aspect-ratio:1;background:#a9d4a8;cursor:zoom-in;transition:transform .25s,box-shadow .25s}
+.bitem img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.bitem:hover{transform:translateY(-4px);box-shadow:0 20px 40px -14px #38e1ff88}
+.bitem:hover img{transform:scale(1.08)}
+.bitem span{position:absolute;left:10px;bottom:10px;font-size:13px;font-weight:800;background:#000b;color:#fff;border-radius:999px;padding:3px 10px}
+#lb{width:min(900px,calc(100vw - 24px));background:#0b0910}
+#lb img{width:100%;max-height:70dvh;object-fit:contain;display:block;background:#0b0910}
+.lbbar{display:flex;align-items:center;gap:10px;padding:12px 14px}
+.lbbar b{flex:1;font:700 18px Unbounded,sans-serif}
+.lbbar button{border:1px solid var(--line);background:var(--card);border-radius:12px;min-width:46px;min-height:44px;font-weight:800;font-size:18px}
+.comm{background:radial-gradient(ellipse at 20% 0%,#2a1236 0,transparent 55%),var(--bg2);border-top:1px solid #ffffff0d}
+.up{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:18px;align-items:stretch;margin-bottom:22px}
+@media(max-width:760px){.up{grid-template-columns:minmax(0,1fr)}}
+.drop{border:2px dashed #ffffff33;border-radius:20px;min-height:220px;display:grid;place-items:center;text-align:center;padding:18px;position:relative;overflow:hidden;background:#ffffff06;cursor:pointer;transition:border-color .2s,background .2s}
+.drop.over,.drop:hover{border-color:var(--fire);background:#ff7a1a10}
+.drop img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.drop p{margin:0;font-weight:800;color:#e7def2}.drop small{color:var(--soft)}
+.fields{display:flex;flex-direction:column;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px}
+.fields label{font-size:13px;font-weight:800;color:var(--soft)}
+.fields input,.fields select{width:100%;border:1px solid var(--line);background:#0b0910;color:#fff;border-radius:12px;padding:12px;font:16px Manrope,sans-serif}
+.send{border:0;border-radius:14px;background:linear-gradient(135deg,var(--fire),var(--fire2));color:#fff;font-weight:800;min-height:48px;margin-top:auto}
+.send:disabled{opacity:.5;cursor:default}
+.cmnote{background:#ffffff0a;border:1px solid #ffffff14;border-radius:16px;padding:14px 16px;color:#d8cfe5;margin-bottom:18px}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:16px}
+.post{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.post img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#000;cursor:zoom-in}
+.post div{padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.post b{font-size:16px}.post small{color:var(--soft);font-weight:700}
+.post button{align-self:flex-start;margin-top:6px;border:1px solid var(--line);background:none;border-radius:10px;padding:0 10px;min-height:36px;font-weight:800;color:var(--soft)}
+@media(max-width:860px){.logo{margin-right:auto}.links{order:9;flex:0 0 100%;margin:0;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding:0 0 10px;scrollbar-width:none;-webkit-mask:linear-gradient(90deg,#000 85%,transparent)}.links::-webkit-scrollbar{display:none}.links a{flex:none;font-size:14px;padding:7px 12px;border-radius:999px;background:#ffffff0d;border:1px solid #ffffff14}html{scroll-padding-top:118px}.hero .wrap{padding-top:126px}}
+@media(max-width:360px){.logo span{display:none}nav .wrap{gap:6px!important}.ctl{min-width:40px;min-height:40px;padding:0 6px}.mine{min-height:40px}}
+@media(max-width:480px){nav .wrap{gap:8px}.logo{font-size:14px}.logo img{width:28px;height:28px}.mine [data-i]{display:none}.mine{padding:0 12px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#inicio"><img src="logo.svg" alt="" width="32" height="32"><span>Chill Skills</span></a>
+  <div class="links"><a href="#roblox" data-i="nav_roblox"></a><a href="#builds" data-i="nav_builds"></a><a href="#todas" data-i="nav_skills"></a><a href="#tutoriales" data-i="nav_tut"></a><a href="#comunidad" data-i="nav_comm"></a><a href="#instalar" data-i="nav_install"></a></div>
+  <select class="ctl" id="lang" aria-label="Idioma / Language"><option value="es">ES</option><option value="en">EN</option><option value="pt">PT</option><option value="fr">FR</option></select>
+  <button class="ctl" id="mus" type="button" aria-pressed="true"></button><button class="ctl" id="snd" type="button" aria-pressed="true"></button>
+  <button class="mine" id="mineBtn" type="button"><span data-i="mine"></span> · <span id="mineN">0</span></button>
+</div></nav>
+
+<header class="hero" id="inicio">
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="wrap"><div class="lead">
+    <h1 id="h1">Dale <span>superpoderes</span> a tu Claude</h1>
+    <p data-i="sub">Skills para crear juegos de Roblox, documentos, diseños y código. Busca, pulsa Agregar y Claude aprende a hacerlo.</p>
+    <label class="search" for="q"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="q" type="search" autocomplete="off"></label>
+    <div class="counts" id="counts"></div>
+  </div></div>
+  <div class="hint" data-i="hint"></div>
+</header>
+
+<section class="band roblox" id="roblox"><div class="wrap">
+  <div class="shead"><div><h2 id="rTitle"></h2><p data-i="r_sub"></p></div>
+    <div class="seg" role="group"><button type="button" data-rs="all" aria-pressed="true" data-i="seg_all"></button><button type="button" data-rs="mine" aria-pressed="false" data-i="seg_mine"></button><button type="button" data-rs="com" aria-pressed="false" data-i="seg_com"></button></div></div>
+  <div class="gallery">
+    <figure><img src="img/c_duck.jpg" alt=""><figcaption>Duck</figcaption></figure>
+    <figure><img src="img/c_dragon.jpg" alt=""><figcaption>Ember Dragon</figcaption></figure>
+    <figure><img src="img/c_rhino.jpg" alt=""><figcaption>War Rhino</figcaption></figure>
+    <figure><img src="img/c_penguin.jpg" alt=""><figcaption>Penguin</figcaption></figure>
+  </div>
+  <p class="lnote" data-i="r_made"></p>
+  <div class="rail" id="rail" tabindex="0"></div>
+  <div class="railnav"><button type="button" id="prev" aria-label="‹">‹</button><button type="button" id="next" aria-label="›">›</button></div>
+</div></section>
+
+<section class="band builds" id="builds"><div class="wrap">
+  <div class="shead"><div><h2 data-i="b_title"></h2><p data-i="b_sub"></p></div>
+    <div class="seg" role="group"><button type="button" data-bf="all" aria-pressed="true" data-i="bf_all"></button><button type="button" data-bf="pet" aria-pressed="false" data-i="bf_pet"></button><button type="button" data-bf="boss" aria-pressed="false" data-i="bf_boss"></button><button type="button" data-bf="obj" aria-pressed="false" data-i="bf_obj"></button></div></div>
+  <div class="bgrid" id="bgrid"></div>
+</div></section>
+
+<section class="band" id="todas"><div class="wrap">
+  <div class="shead"><div><h2 data-i="all_title"></h2></div></div>
+  <div class="bar" id="bar" role="toolbar"></div>
+  <p class="lnote" id="descnote" hidden></p>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="band tuts" id="tutoriales"><div class="wrap">
+  <div class="shead"><div><h2 data-i="tut_title"></h2><p data-i="tut_sub"></p></div></div>
+  <div id="vids"></div>
+</div></section>
+
+<section class="band comm" id="comunidad"><div class="wrap">
+  <div class="shead"><div><h2 data-i="cm_title"></h2><p data-i="cm_sub"></p></div></div>
+  <div class="cmnote" id="cmNote"></div>
+  <form class="up" id="cmForm" hidden>
+    <label class="drop" id="cmDrop" for="cmFile"><span><p data-i="cm_drop"></p><small data-i="cm_drop2"></small></span><img id="cmPrev" alt="" hidden></label>
+    <input id="cmFile" type="file" accept="image/*" hidden>
+    <div class="fields">
+      <label for="cmT" data-i="cm_name"></label><input id="cmT" maxlength="80" autocomplete="off">
+      <label for="cmS" data-i="cm_skill"></label><select id="cmS"></select>
+      <button class="send" id="cmSend" type="submit" data-i="cm_send" disabled></button>
+    </div>
+  </form>
+  <div class="cgrid" id="cgrid"></div>
+</div></section>
+
+<section class="band" id="instalar"><div class="wrap">
+  <div class="shead"><div><h2 data-i="how_title"></h2></div></div>
+  <div class="promo"><video id="promo" src="media/install.mp4" poster="media/install.jpg" controls playsinline preload="metadata"></video></div>
+  <div class="steps">
+    <div class="step" style="--h:#ff7a1a"><b>1</b><h3 data-i="s1t"></h3><p data-i="s1"></p></div>
+    <div class="step" style="--h:#38e1ff"><b>2</b><h3 data-i="s2t"></h3><p data-i="s2"></p></div>
+    <div class="step" style="--h:#2bd47a"><b>3</b><h3 data-i="s3t"></h3><p data-i="s3"></p></div>
+  </div>
+  <p class="warnbox" data-i="note"></p>
+</div></section>
+
+<footer><div class="wrap"><span data-i="foot"></span><span data-i="sample"></span></div></footer>
+
+<dialog id="dlg" aria-labelledby="dTitle"><div class="dwrap">
+  <div class="dcover" id="dCover"></div><button class="x" id="dClose" type="button" aria-label="✕">✕</button>
+  <div class="db">
+    <div class="by" id="dBy"></div><h3 id="dTitle"></h3><p id="dDesc"></p>
+    <div class="try" id="dTry"></div>
+    <div class="tabs" role="tablist" id="dTabs"></div>
+    <div id="dPanel"></div>
+    <button class="have" id="dHave" type="button"></button>
+  </div>
+</div></dialog>
+<dialog id="lb" aria-label="Build"><img id="lbImg" alt=""><div class="lbbar"><button type="button" id="lbPrev" aria-label="‹">‹</button><b id="lbCap"></b><button type="button" id="lbNext" aria-label="›">›</button><button type="button" id="lbClose" aria-label="✕">✕</button></div></dialog>
+<canvas id="burst" aria-hidden="true"></canvas>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="data.js"></script>
+<script>
+{
+const S=window.CS_SKILLS||[], V=window.CS_VIDEOS||[], B=window.CS_BUILDS||[], REPO=window.CS_REPO, MARKET=window.CS_MARKET;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+const norm=s=>String(s).normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+/* ================= idiomas ================= */
+const T={
+es:{nav_builds:'Builds',nav_comm:'Comunidad',b_title:'Builds de Roblox',b_sub:'Modelos reales hechos con la skill LihFolk Stud Voxel. Pulsa uno para verlo en grande.',bf_all:'Todo',bf_pet:'Mascotas',bf_boss:'Bosses',bf_obj:'Objetos',cm_title:'Creaciones de la comunidad',cm_sub:'Sube una foto de lo que has hecho con Claude y una skill: tu juego, tu modelo o tu efecto.',cm_drop:'Arrastra una imagen o pulsa aquí',cm_drop2:'PNG o JPG · se reduce sola',cm_name:'¿Qué es?',cm_skill:'Skill que usaste',cm_noskill:'Ninguna / otra',cm_send:'Publicar creación',cm_sending:'Subiendo...',cm_ok:'¡Publicada!',cm_err:'No se pudo subir. Prueba otra vez.',cm_notimg:'Eso no es una imagen.',cm_empty:'Aún no hay creaciones. ¡Sé el primero en subir la tuya!',cm_loading:'Cargando creaciones...',cm_slow:'Las creaciones tardan en cargar; puede que no estén al día.',cm_off:'La galería funciona al abrir la página en Claude con tu cuenta. Para que tus amigos suban fotos, compártela con ellos desde el botón Compartir y dales permiso de Contributor.',cm_view:'Puedes ver las creaciones. Para subir las tuyas, pide al dueño acceso de Contributor.',cm_can:'Sube tu creación: la verán todas las personas con acceso a esta página.',cm_del:'Borrar',cm_some:'Alguien',cm_limit:'Máximo 12 fotos por persona: se borra la más antigua.',nav_roblox:'Roblox',nav_skills:'Skills',nav_tut:'Tutoriales',nav_install:'Instalar',mine:'Mis skills',h1a:'Dale',h1b:'superpoderes',h1c:'a tu Claude',sub:'Skills para crear juegos de Roblox, documentos, diseños y código. Busca, pulsa Agregar y Claude aprende a hacerlo.',ph:'Busca: dragón, tienda, excel, efectos...',hint:'Acerca el ratón a la bola y haz clic en ella',k_skills:'skills',k_roblox:'de Roblox',k_lih:'de LihFolk',k_vid:'tutoriales',r_t1:'Rincón',r_sub:'Modelos vóxel, bosses, menús, efectos y packs completos de la comunidad para hacer juegos con Claude.',r_made:'Modelos hechos con LihFolk Stud Voxel.',seg_all:'Todo',seg_mine:'De LihFolk',seg_com:'Comunidad',all_title:'Todas las skills',c_all:'Todas',c_roblox:'Roblox',c_docs:'Documentos',c_design:'Diseño',c_dev:'Programación',c_writing:'Escritura',c_marketing:'Marketing',c_productivity:'Productividad',add:'Agregar',added:'✓ Agregada',view:'Ver',by:'por',needs:'Necesita',b_mine:'LihFolk',b_off:'Oficial',b_com:'Comunidad',try:'Prueba a decirle:',tab_app:'App de Claude',tab_code:'Claude Code',have:'✓ Ya la tengo en Claude',unhave:'Quitar de mis skills',copy:'Copiar',copied:'¡Copiado!',copyfail:'No se pudo copiar: selecciónalo a mano',empty:'No hay ninguna skill con esa palabra.',empty_mine:'Aún no tienes ninguna. Pulsa Agregar en alguna skill.',t_added:'añadida a tus skills',t_removed:'Quitada de tus skills',tut_title:'Tutoriales',tut_sub:'Vídeos para aprender a usar y crear skills, y a hacer juegos de Roblox con Claude Code. La mayoría están en inglés.',g_skills:'Skills de Claude',g_roblox:'Roblox + Claude Code',watch:'Ver en YouTube ↗',read:'Leer la guía ↗',searchyt:'Buscar en YouTube ↗',how_title:'Cómo se instalan',s1t:'Pulsa Agregar',s1:'Cada skill te dice cómo instalarla en la app de Claude o en Claude Code, con botón de copiar.',s2t:'Añádela a Claude',s2:'En la app: Customize → Skills o Personal plugins. En Claude Code: uno o dos comandos.',s3t:'Pídeselo',s3:'Escribe lo que quieres y Claude usa la skill solo.',note:'Instala skills solo de gente de confianza: pueden ejecutar código. Las de la comunidad son de sus autores; aquí solo se enlazan.',foot:'Chill Skills · LihFolk, Anthropic y la comunidad',sample:'La dirección lihfolk/chill-skills es de ejemplo hasta que se suba el repositorio.',descnote:'',
+ i_m1:'En Claude abre <b>Customize</b> y en <b>Personal plugins</b> pulsa <b>+</b> → añadir marketplace.',i_m2:'Pega esta dirección (solo la primera vez):',i_m3:'Busca <b>{n}</b> y pulsa <b>+</b>.',i_o1:'Ya viene con Claude: abre <b>Customize → Skills</b>.',i_o2:'Busca <b>{n}</b> entre las skills de Anthropic y actívala.',i_o3:'Ten activado <b>Code execution and file creation</b> en los ajustes.',i_c1:'En Claude abre <b>Customize → Personal plugins → +</b> y añade este marketplace:',i_c2:'Instala <b>{n}</b> desde la lista.',i_g1:'Abre su GitHub y pulsa <b>Code → Download ZIP</b>.',i_g2:'Comprime de nuevo la carpeta que tiene el SKILL.md.',i_g3:'En Claude: <b>Customize → Skills → + → Upload a skill</b>.',i_gn:'Está pensada sobre todo para Claude Code (pestaña de al lado).',i_mcp:'Es un conector de Roblox Studio, no una skill. Sigue la guía oficial: activa el MCP en Studio y conéctalo a Claude Code.',c_off:'Instala el pack <b>{p}</b>, que incluye {n} y otras.',gh:'Ver en GitHub ↗',guide:'Abrir la guía ↗'},
+en:{nav_builds:'Builds',nav_comm:'Community',b_title:'Roblox builds',b_sub:'Real models made with the LihFolk Stud Voxel skill. Tap one to see it big.',bf_all:'All',bf_pet:'Pets',bf_boss:'Bosses',bf_obj:'Objects',cm_title:'Community creations',cm_sub:'Upload a picture of what you made with Claude and a skill: your game, your model or your effect.',cm_drop:'Drop an image or tap here',cm_drop2:'PNG or JPG · resized for you',cm_name:'What is it?',cm_skill:'Skill you used',cm_noskill:'None / other',cm_send:'Post creation',cm_sending:'Uploading...',cm_ok:'Posted!',cm_err:'Upload failed. Try again.',cm_notimg:'That is not an image.',cm_empty:'No creations yet. Be the first to post yours!',cm_loading:'Loading creations...',cm_slow:'Creations are slow to load; they may be out of date.',cm_off:'The gallery works when the page is opened in Claude with your account. To let friends post, share it from the Share button and give them Contributor access.',cm_view:'You can see the creations. To post yours, ask the owner for Contributor access.',cm_can:'Post your creation: everyone with access to this page will see it.',cm_del:'Delete',cm_some:'Someone',cm_limit:'Up to 12 pictures per person: the oldest is removed.',nav_roblox:'Roblox',nav_skills:'Skills',nav_tut:'Tutorials',nav_install:'Install',mine:'My skills',h1a:'Give your Claude',h1b:'superpowers',h1c:'',sub:'Skills to make Roblox games, documents, designs and code. Search, hit Add and Claude learns how.',ph:'Search: dragon, shop, excel, effects...',hint:'Move near the orb, then click it',k_skills:'skills',k_roblox:'for Roblox',k_lih:'by LihFolk',k_vid:'tutorials',r_t1:'Roblox',r_sub:'Voxel models, bosses, menus, effects and full community packs to make games with Claude.',r_made:'Models made with LihFolk Stud Voxel.',seg_all:'All',seg_mine:'By LihFolk',seg_com:'Community',all_title:'All skills',c_all:'All',c_roblox:'Roblox',c_docs:'Documents',c_design:'Design',c_dev:'Coding',c_writing:'Writing',c_marketing:'Marketing',c_productivity:'Productivity',add:'Add',added:'✓ Added',view:'View',by:'by',needs:'Needs',b_mine:'LihFolk',b_off:'Official',b_com:'Community',try:'Try asking:',tab_app:'Claude app',tab_code:'Claude Code',have:'✓ I have it in Claude',unhave:'Remove from my skills',copy:'Copy',copied:'Copied!',copyfail:'Couldn\'t copy: select it by hand',empty:'No skills match that word.',empty_mine:'None yet. Hit Add on a skill.',t_added:'added to your skills',t_removed:'Removed from your skills',tut_title:'Tutorials',tut_sub:'Videos to learn to use and create skills, and to build Roblox games with Claude Code.',g_skills:'Claude skills',g_roblox:'Roblox + Claude Code',watch:'Watch on YouTube ↗',read:'Read the guide ↗',searchyt:'Search YouTube ↗',how_title:'How to install',s1t:'Hit Add',s1:'Each skill shows how to install it in the Claude app or Claude Code, with a copy button.',s2t:'Add it to Claude',s2:'In the app: Customize → Skills or Personal plugins. In Claude Code: one or two commands.',s3t:'Just ask',s3:'Say what you want and Claude uses the skill on its own.',note:'Only install skills from people you trust: they can run code. Community skills belong to their authors; this page only links to them.',foot:'Chill Skills · LihFolk, Anthropic and the community',sample:'The lihfolk/chill-skills address is a placeholder until the repo is published.',descnote:'',
+ i_m1:'In Claude open <b>Customize</b> and under <b>Personal plugins</b> press <b>+</b> → add marketplace.',i_m2:'Paste this address (first time only):',i_m3:'Find <b>{n}</b> and press <b>+</b>.',i_o1:'It ships with Claude: open <b>Customize → Skills</b>.',i_o2:'Find <b>{n}</b> among Anthropic\'s skills and turn it on.',i_o3:'Keep <b>Code execution and file creation</b> on in settings.',i_c1:'In Claude open <b>Customize → Personal plugins → +</b> and add this marketplace:',i_c2:'Install <b>{n}</b> from the list.',i_g1:'Open its GitHub and press <b>Code → Download ZIP</b>.',i_g2:'Re-zip the folder that holds SKILL.md.',i_g3:'In Claude: <b>Customize → Skills → + → Upload a skill</b>.',i_gn:'It is built mainly for Claude Code (next tab).',i_mcp:'This is a Roblox Studio connector, not a skill. Follow the official guide: turn on MCP in Studio and connect it to Claude Code.',c_off:'Install the <b>{p}</b> pack, which includes {n} and more.',gh:'View on GitHub ↗',guide:'Open the guide ↗'},
+pt:{nav_builds:'Builds',nav_comm:'Comunidade',b_title:'Builds de Roblox',b_sub:'Modelos reais feitos com a skill LihFolk Stud Voxel. Toque em um para ver grande.',bf_all:'Tudo',bf_pet:'Mascotes',bf_boss:'Bosses',bf_obj:'Objetos',cm_title:'Criações da comunidade',cm_sub:'Envie uma foto do que você fez com o Claude e uma skill: seu jogo, seu modelo ou seu efeito.',cm_drop:'Arraste uma imagem ou toque aqui',cm_drop2:'PNG ou JPG · reduzida automaticamente',cm_name:'O que é?',cm_skill:'Skill que usou',cm_noskill:'Nenhuma / outra',cm_send:'Publicar criação',cm_sending:'Enviando...',cm_ok:'Publicada!',cm_err:'Não foi possível enviar. Tente de novo.',cm_notimg:'Isso não é uma imagem.',cm_empty:'Ainda não há criações. Seja o primeiro!',cm_loading:'Carregando criações...',cm_slow:'As criações estão demorando; podem estar desatualizadas.',cm_off:'A galeria funciona ao abrir a página no Claude com sua conta. Para seus amigos enviarem fotos, compartilhe pelo botão Compartilhar com acesso de Contributor.',cm_view:'Você pode ver as criações. Para enviar as suas, peça ao dono acesso de Contributor.',cm_can:'Envie sua criação: todos com acesso a esta página vão ver.',cm_del:'Apagar',cm_some:'Alguém',cm_limit:'Máximo de 12 fotos por pessoa: a mais antiga é apagada.',nav_roblox:'Roblox',nav_skills:'Skills',nav_tut:'Tutoriais',nav_install:'Instalar',mine:'Minhas skills',h1a:'Dê',h1b:'superpoderes',h1c:'ao seu Claude',sub:'Skills para criar jogos de Roblox, documentos, designs e código. Pesquise, clique em Adicionar e o Claude aprende.',ph:'Pesquise: dragão, loja, excel, efeitos...',hint:'Aproxime o mouse da esfera e clique nela',k_skills:'skills',k_roblox:'de Roblox',k_lih:'da LihFolk',k_vid:'tutoriais',r_t1:'Canto',r_sub:'Modelos voxel, bosses, menus, efeitos e pacotes completos da comunidade para fazer jogos com o Claude.',r_made:'Modelos feitos com LihFolk Stud Voxel.',seg_all:'Tudo',seg_mine:'Da LihFolk',seg_com:'Comunidade',all_title:'Todas as skills',c_all:'Todas',c_roblox:'Roblox',c_docs:'Documentos',c_design:'Design',c_dev:'Programação',c_writing:'Escrita',c_marketing:'Marketing',c_productivity:'Produtividade',add:'Adicionar',added:'✓ Adicionada',view:'Ver',by:'por',needs:'Precisa',b_mine:'LihFolk',b_off:'Oficial',b_com:'Comunidade',try:'Experimente pedir:',tab_app:'App do Claude',tab_code:'Claude Code',have:'✓ Já tenho no Claude',unhave:'Remover das minhas skills',copy:'Copiar',copied:'Copiado!',copyfail:'Não foi possível copiar: selecione à mão',empty:'Nenhuma skill com essa palavra.',empty_mine:'Nenhuma ainda. Clique em Adicionar.',t_added:'adicionada às suas skills',t_removed:'Removida das suas skills',tut_title:'Tutoriais',tut_sub:'Vídeos para aprender a usar e criar skills e fazer jogos de Roblox com o Claude Code. A maioria está em inglês.',g_skills:'Skills do Claude',g_roblox:'Roblox + Claude Code',watch:'Ver no YouTube ↗',read:'Ler o guia ↗',searchyt:'Pesquisar no YouTube ↗',how_title:'Como instalar',s1t:'Clique em Adicionar',s1:'Cada skill mostra como instalar no app do Claude ou no Claude Code, com botão de copiar.',s2t:'Adicione ao Claude',s2:'No app: Customize → Skills ou Personal plugins. No Claude Code: um ou dois comandos.',s3t:'É só pedir',s3:'Diga o que quer e o Claude usa a skill sozinho.',note:'Instale skills só de pessoas de confiança: elas podem executar código. As da comunidade são dos seus autores; aqui só há links.',foot:'Chill Skills · LihFolk, Anthropic e a comunidade',sample:'O endereço lihfolk/chill-skills é um exemplo até o repositório ser publicado.',descnote:'As descrições das skills estão em inglês.',
+ i_m1:'No Claude abra <b>Customize</b> e em <b>Personal plugins</b> clique em <b>+</b> → adicionar marketplace.',i_m2:'Cole este endereço (só na primeira vez):',i_m3:'Procure <b>{n}</b> e clique em <b>+</b>.',i_o1:'Já vem com o Claude: abra <b>Customize → Skills</b>.',i_o2:'Procure <b>{n}</b> nas skills da Anthropic e ative.',i_o3:'Deixe <b>Code execution and file creation</b> ativado nas configurações.',i_c1:'No Claude abra <b>Customize → Personal plugins → +</b> e adicione este marketplace:',i_c2:'Instale <b>{n}</b> da lista.',i_g1:'Abra o GitHub e clique em <b>Code → Download ZIP</b>.',i_g2:'Compacte de novo a pasta que tem o SKILL.md.',i_g3:'No Claude: <b>Customize → Skills → + → Upload a skill</b>.',i_gn:'Foi feita principalmente para o Claude Code (aba ao lado).',i_mcp:'É um conector do Roblox Studio, não uma skill. Siga o guia oficial: ative o MCP no Studio e conecte ao Claude Code.',c_off:'Instale o pacote <b>{p}</b>, que inclui {n} e outras.',gh:'Ver no GitHub ↗',guide:'Abrir o guia ↗'},
+fr:{nav_builds:'Builds',nav_comm:'Communauté',b_title:'Builds Roblox',b_sub:'De vrais modèles faits avec la skill LihFolk Stud Voxel. Touche-en un pour le voir en grand.',bf_all:'Tout',bf_pet:'Animaux',bf_boss:'Boss',bf_obj:'Objets',cm_title:'Créations de la communauté',cm_sub:'Envoie une photo de ce que tu as fait avec Claude et une skill : ton jeu, ton modèle ou ton effet.',cm_drop:'Dépose une image ou touche ici',cm_drop2:'PNG ou JPG · réduite automatiquement',cm_name:'Qu\'est-ce que c\'est ?',cm_skill:'Skill utilisée',cm_noskill:'Aucune / autre',cm_send:'Publier',cm_sending:'Envoi...',cm_ok:'Publiée !',cm_err:'Échec de l\'envoi. Réessaie.',cm_notimg:'Ce n\'est pas une image.',cm_empty:'Aucune création pour l\'instant. Sois le premier !',cm_loading:'Chargement des créations...',cm_slow:'Les créations tardent à charger ; elles peuvent ne pas être à jour.',cm_off:'La galerie fonctionne quand la page est ouverte dans Claude avec ton compte. Pour que tes amis publient, partage-la depuis le bouton Partager avec l\'accès Contributor.',cm_view:'Tu peux voir les créations. Pour publier les tiennes, demande l\'accès Contributor au propriétaire.',cm_can:'Publie ta création : tous ceux qui ont accès à cette page la verront.',cm_del:'Supprimer',cm_some:'Quelqu\'un',cm_limit:'12 photos max par personne : la plus ancienne est supprimée.',nav_roblox:'Roblox',nav_skills:'Skills',nav_tut:'Tutoriels',nav_install:'Installer',mine:'Mes skills',h1a:'Donne des',h1b:'superpouvoirs',h1c:'à ton Claude',sub:'Des skills pour créer des jeux Roblox, des documents, du design et du code. Cherche, clique sur Ajouter et Claude apprend.',ph:'Cherche : dragon, boutique, excel, effets...',hint:'Approche la souris de l\'orbe et clique dessus',k_skills:'skills',k_roblox:'pour Roblox',k_lih:'de LihFolk',k_vid:'tutoriels',r_t1:'Coin',r_sub:'Modèles voxel, boss, menus, effets et packs complets de la communauté pour créer des jeux avec Claude.',r_made:'Modèles faits avec LihFolk Stud Voxel.',seg_all:'Tout',seg_mine:'De LihFolk',seg_com:'Communauté',all_title:'Toutes les skills',c_all:'Toutes',c_roblox:'Roblox',c_docs:'Documents',c_design:'Design',c_dev:'Code',c_writing:'Écriture',c_marketing:'Marketing',c_productivity:'Productivité',add:'Ajouter',added:'✓ Ajoutée',view:'Voir',by:'par',needs:'Requiert',b_mine:'LihFolk',b_off:'Officiel',b_com:'Communauté',try:'Essaie de demander :',tab_app:'Appli Claude',tab_code:'Claude Code',have:'✓ Je l\'ai dans Claude',unhave:'Retirer de mes skills',copy:'Copier',copied:'Copié !',copyfail:'Impossible de copier : sélectionne-le',empty:'Aucune skill ne correspond.',empty_mine:'Aucune pour l\'instant. Clique sur Ajouter.',t_added:'ajoutée à tes skills',t_removed:'Retirée de tes skills',tut_title:'Tutoriels',tut_sub:'Des vidéos pour apprendre à utiliser et créer des skills, et faire des jeux Roblox avec Claude Code. La plupart sont en anglais.',g_skills:'Skills Claude',g_roblox:'Roblox + Claude Code',watch:'Voir sur YouTube ↗',read:'Lire le guide ↗',searchyt:'Chercher sur YouTube ↗',how_title:'Comment installer',s1t:'Clique sur Ajouter',s1:'Chaque skill explique comment l\'installer dans l\'appli Claude ou Claude Code, avec un bouton copier.',s2t:'Ajoute-la à Claude',s2:'Dans l\'appli : Customize → Skills ou Personal plugins. Dans Claude Code : une ou deux commandes.',s3t:'Demande',s3:'Dis ce que tu veux et Claude utilise la skill tout seul.',note:'N\'installe que des skills de confiance : elles peuvent exécuter du code. Celles de la communauté appartiennent à leurs auteurs ; on ne fait que les lier.',foot:'Chill Skills · LihFolk, Anthropic et la communauté',sample:'L\'adresse lihfolk/chill-skills est un exemple en attendant la publication du dépôt.',descnote:'Les descriptions des skills sont en anglais.',
+ i_m1:'Dans Claude ouvre <b>Customize</b> et dans <b>Personal plugins</b> clique sur <b>+</b> → ajouter un marketplace.',i_m2:'Colle cette adresse (la première fois seulement) :',i_m3:'Cherche <b>{n}</b> et clique sur <b>+</b>.',i_o1:'Elle est incluse dans Claude : ouvre <b>Customize → Skills</b>.',i_o2:'Cherche <b>{n}</b> parmi les skills d\'Anthropic et active-la.',i_o3:'Garde <b>Code execution and file creation</b> activé dans les réglages.',i_c1:'Dans Claude ouvre <b>Customize → Personal plugins → +</b> et ajoute ce marketplace :',i_c2:'Installe <b>{n}</b> depuis la liste.',i_g1:'Ouvre son GitHub et clique sur <b>Code → Download ZIP</b>.',i_g2:'Recompresse le dossier qui contient SKILL.md.',i_g3:'Dans Claude : <b>Customize → Skills → + → Upload a skill</b>.',i_gn:'Elle est pensée surtout pour Claude Code (onglet d\'à côté).',i_mcp:'C\'est un connecteur Roblox Studio, pas une skill. Suis le guide officiel : active le MCP dans Studio et connecte-le à Claude Code.',c_off:'Installe le pack <b>{p}</b>, qui inclut {n} et d\'autres.',gh:'Voir sur GitHub ↗',guide:'Ouvrir le guide ↗'}};
+let L='es';
+try{const s=localStorage.getItem('cs-lang');if(s&&T[s])L=s;else{const n=(navigator.languages||[navigator.language||'es']).map(x=>x.slice(0,2).toLowerCase()).find(x=>T[x]);if(n)L=n}}catch(e){}
+const t=k=>(T[L][k]!==undefined?T[L][k]:T.es[k]);
+const dl=o=>o?(o[L]||o.en||o.es):'';
+/* ================= sonido (Web Audio, sin archivos) ================= */
+let ac=null,sound=true;try{sound=localStorage.getItem('cs-snd')!=='0'}catch(e){}
+function actx(){if(!ac){try{ac=new (window.AudioContext||window.webkitAudioContext)()}catch(e){}}if(ac&&ac.state==='suspended')ac.resume();return ac}
+function tone(f,t0,d,type,v,slide){const a=ac;if(!a||!sound)return;const o=a.createOscillator(),g=a.createGain(),lp=a.createBiquadFilter();o.type=type||'sine';lp.type='lowpass';lp.frequency.value=2600;const s=a.currentTime+t0;o.frequency.setValueAtTime(f,s);if(slide)o.frequency.exponentialRampToValueAtTime(slide,s+d);g.gain.setValueAtTime(0,s);g.gain.linearRampToValueAtTime(v||.1,s+.01);g.gain.exponentialRampToValueAtTime(.0008,s+d);o.connect(lp);lp.connect(g);g.connect(a.destination);o.start(s);o.stop(s+d+.05)}
+function noise(d,v,f0,f1){const a=ac;if(!a||!sound)return;const len=Math.floor(a.sampleRate*d),b=a.createBuffer(1,len,a.sampleRate),c=b.getChannelData(0);for(let i=0;i<len;i++)c[i]=(Math.random()*2-1)*Math.pow(1-i/len,2.2);const src=a.createBufferSource(),lp=a.createBiquadFilter(),g=a.createGain();src.buffer=b;lp.type='lowpass';lp.frequency.setValueAtTime(f0,a.currentTime);lp.frequency.exponentialRampToValueAtTime(f1,a.currentTime+d);g.gain.value=v;src.connect(lp);lp.connect(g);g.connect(a.destination);src.start()}
+const SFX={hover:()=>tone(1320,0,.05,'sine',.02),click:()=>tone(520,0,.08,'triangle',.1,780),open:()=>{noise(.35,.12,3000,300);tone(330,0,.25,'sine',.08,660)},close:()=>tone(600,0,.12,'sine',.06,300),copy:()=>{tone(1046,0,.06,'square',.03);tone(1568,.05,.08,'square',.03)},
+ add:()=>{[523,659,784,1046,1318].forEach((f,i)=>tone(f,i*.06,.3,'triangle',.08));noise(.5,.08,6000,800)},remove:()=>{tone(523,0,.1,'triangle',.08);tone(349,.08,.18,'triangle',.07)},chip:()=>tone(700,0,.06,'triangle',.07,1050),
+ boom:()=>{noise(1.2,.55,1800,60);tone(70,0,.7,'sine',.35,32)},zap:()=>{noise(.25,.12,9000,2000);tone(1800,0,.18,'sawtooth',.03,200)}};
+const sfx=n=>{if(sound&&ac)SFX[n]()};
+const SND_ON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9Z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg>',SND_OFF='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9Z" fill="currentColor"/><path d="m17 9 5 6m0-6-5 6"/></svg>';
+function paintSnd(){const b=$('snd');b.innerHTML=sound?SND_ON:SND_OFF;b.setAttribute('aria-pressed',sound);b.setAttribute('aria-label',sound?'Sound on':'Sound off')}
+document.addEventListener('pointerdown',()=>actx(),{once:true});
+/* música chill de fondo (bucle) */
+let music=true;try{music=localStorage.getItem('cs-mus')!=='0'}catch(e){}
+const MUS={buf:null,src:null,gain:null,el:null,loading:false,on:false,hold:false};
+async function musStart(){const a=actx();if(!a)return;if(!MUS.gain){MUS.gain=a.createGain();MUS.gain.gain.value=0;MUS.gain.connect(a.destination)}
+ if(!MUS.buf&&!MUS.el){if(MUS.loading)return;MUS.loading=true;try{const MSRC=(new Audio()).canPlayType('audio/ogg; codecs="vorbis"')?'media/lofi.ogg':'media/lofi.mp3';const r=await fetch(MSRC);if(!r.ok)throw 0;MUS.buf=await a.decodeAudioData(await r.arrayBuffer())}catch(e){MUS.el=new Audio((new Audio()).canPlayType('audio/ogg; codecs="vorbis"')?'media/lofi.ogg':'media/lofi.mp3');MUS.el.loop=true;MUS.el.volume=.32}MUS.loading=false}
+ if(!music||MUS.on||MUS.hold)return;MUS.on=true;
+ if(MUS.buf){const s=a.createBufferSource();s.buffer=MUS.buf;s.loop=true;s.loopStart=0;s.loopEnd=Math.min(MUS.buf.duration,49.2307);s.connect(MUS.gain);s.start();MUS.src=s}else if(MUS.el){MUS.el.play().catch(()=>{MUS.on=false})}
+ MUS.gain.gain.cancelScheduledValues(a.currentTime);MUS.gain.gain.setTargetAtTime(.3,a.currentTime,.9);paintMus()}
+function musStop(){const a=ac;if(!a||!MUS.on)return;MUS.on=false;MUS.gain.gain.cancelScheduledValues(a.currentTime);MUS.gain.gain.setTargetAtTime(0,a.currentTime,.25);const s=MUS.src,e=MUS.el;MUS.src=null;setTimeout(()=>{try{s&&s.stop()}catch(_){}if(e&&!MUS.on)e.pause()},1000);paintMus()}
+const MUS_ON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3" fill="currentColor"/><circle cx="17" cy="16" r="3" fill="currentColor"/></svg>',MUS_OFF='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" opacity=".55"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/><path d="M3 3l18 18" opacity="1"/></svg>';
+function paintMus(){const b=$('mus');if(!b)return;const on=music&&(MUS.on||!ac);b.innerHTML=on?MUS_ON:MUS_OFF;b.setAttribute('aria-pressed',on);b.setAttribute('aria-label',on?'Music on':'Music off');b.classList.toggle('playing',MUS.on)}
+paintMus();
+['pointerdown','keydown'].forEach(ev=>document.addEventListener(ev,e=>{if(e.target&&e.target.closest&&e.target.closest('#mus,#promo'))return;if(music&&!MUS.on)musStart()},{passive:true}));
+$('mus').addEventListener('click',()=>{if(music&&MUS.on){music=false;musStop()}else{music=true;MUS.hold=false;musStart()}try{localStorage.setItem('cs-mus',music?'1':'0')}catch(e){}paintMus()});
+const pv=$('promo');if(pv){pv.addEventListener('play',()=>{MUS.hold=true;musStop()});['pause','ended'].forEach(ev=>pv.addEventListener(ev,()=>{MUS.hold=false;if(music)musStart()}))}
+document.addEventListener('visibilitychange',()=>{if(!ac)return;if(document.hidden)ac.suspend();else ac.resume()});
+
+$('snd').addEventListener('click',()=>{sound=!sound;try{localStorage.setItem('cs-snd',sound?'1':'0')}catch(e){};paintSnd();actx();sfx('click')});
+/* ================= portadas estilo VFX (SVG) ================= */
+const G={
+boss:'<path d="M-40-30h80v62h-80z"/><path d="M-40-30-56-56-26-30M40-30 56-56 26-30"/><rect x="-24" y="-12" width="14" height="14" fill="#111"/><rect x="10" y="-12" width="14" height="14" fill="#111"/><rect x="-20" y="16" width="40" height="7" fill="#111"/>',
+cube:'<path d="M0-46 42-22V24L0 48-42 24V-22Z"/><path d="M0-46 42-22 0 2-42-22Z" fill="#fff" opacity=".45"/><path d="M0 2V48" stroke="#111" stroke-opacity=".35" stroke-width="3"/>',
+run:'<rect x="-62" y="12" width="124" height="22" rx="11"/><rect x="30" y="-42" width="10" height="56" rx="4"/><rect x="16" y="-50" width="40" height="14" rx="5"/>',
+burst:'<polygon points="0,-60 13,-17 56,-28 21,4 46,44 0,19 -46,44 -21,4 -56,-28 -13,-17"/><circle r="15" fill="#fff"/>',
+plug:'<rect x="-30" y="-18" width="60" height="48" rx="10"/><rect x="-18" y="-46" width="10" height="30" rx="4"/><rect x="8" y="-46" width="10" height="30" rx="4"/><rect x="-6" y="30" width="12" height="22" rx="4"/>',
+pack:'<rect x="-54" y="-28" width="108" height="70" rx="10"/><path d="M-54-10H54" stroke="#111" stroke-opacity=".35" stroke-width="5"/><rect x="-16" y="-44" width="32" height="20" rx="6"/>',
+shield:'<path d="M0-54 46-38V0Q46 34 0 54-46 34-46 0V-38Z"/><path d="m-16 0 12 12 22-24" stroke="#111" stroke-width="7" fill="none" stroke-linecap="round"/>',
+test:'<rect x="-56" y="-40" width="112" height="80" rx="12"/><path d="m-30 2 12 12 22-24" stroke="#111" stroke-width="8" fill="none" stroke-linecap="round"/>',
+code:'<path d="m-22-30-34 30 34 30M22-30l34 30-34 30" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="m8-40-16 80" stroke="#fff" stroke-width="8" stroke-linecap="round"/>',
+doc:'<path d="M-36-52H18L40-30V52H-36Z"/><g fill="#111" opacity=".4"><rect x="-24" y="-12" width="50" height="6" rx="3"/><rect x="-24" y="4" width="50" height="6" rx="3"/><rect x="-24" y="20" width="34" height="6" rx="3"/></g>',
+slides:'<rect x="-60" y="-40" width="120" height="76" rx="10"/><rect x="-46" y="-26" width="46" height="42" rx="5" fill="#111" opacity=".35"/><rect x="-6" y="36" width="12" height="16"/>',
+sheet:'<rect x="-54" y="-46" width="108" height="92" rx="10"/><path d="M-54-14H54M-54 14H54M-18-46V46M18-46V46" stroke="#111" stroke-opacity=".35" stroke-width="4"/>',
+pdf:'<path d="M-36-52H18L40-30V52H-36Z"/><text y="18" text-anchor="middle" font-family="Unbounded,sans-serif" font-size="26" font-weight="800" fill="#111" opacity=".6">PDF</text>',
+chat:'<path d="M-54-38H54V22H-8L-32 46V22H-54Z"/><g fill="#111" opacity=".4"><circle cx="-24" cy="-8" r="7"/><circle cx="0" cy="-8" r="7"/><circle cx="24" cy="-8" r="7"/></g>',
+palette:'<path d="M0-52C34-52 58-30 58 0 58 22 42 26 28 22 16 18 8 28 16 40 22 50 10 56 0 56-32 56-58 32-58 0-58-30-32-52 0-52Z"/><g fill="#111" opacity=".45"><circle cx="-26" cy="-14" r="8"/><circle cx="0" cy="-30" r="8"/><circle cx="26" cy="-14" r="8"/></g>',
+brush:'<path d="M32-56 48-40-6 14-22-2Z"/><path d="M-22-2-6 14Q-8 40-48 48-38 22-22-2Z" opacity=".85"/>',
+swirl:'<path d="M-48 0a48 48 0 1 0 96 0a36 36 0 1 0-72 0a24 24 0 1 0 48 0a12 12 0 1 0-24 0" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/>',
+brand:'<circle r="48"/><path d="M-20-22h26a14 14 0 0 1 0 28h-26zM-20 6h30a14 14 0 0 1 0 28h-30z" fill="#111" opacity=".45"/>',
+gif:'<rect x="-58" y="-38" width="116" height="76" rx="14"/><text y="13" text-anchor="middle" font-family="Unbounded,sans-serif" font-size="30" font-weight="800" fill="#111" opacity=".55">GIF</text>',
+wand:'<path d="m-42 46 62-62 10 10-62 62Z"/><polygon points="34,-52 40,-38 54,-36 42,-26 46,-12 34,-20 22,-12 26,-26 14,-36 28,-38"/>',
+bolt:'<polygon points="10,-60 -36,8 -4,8 -14,60 36,-12 4,-12"/>',
+list:'<rect x="-50" y="-48" width="100" height="96" rx="12"/><g fill="#111" opacity=".4"><rect x="-32" y="-28" width="64" height="8" rx="4"/><rect x="-32" y="-6" width="64" height="8" rx="4"/><rect x="-32" y="16" width="40" height="8" rx="4"/></g>',
+graph:'<g stroke="#fff" stroke-width="6"><path d="M-40-30 0 0 40-30M0 0V40"/></g><circle cx="-40" cy="-30" r="16"/><circle cx="40" cy="-30" r="16"/><circle cx="0" cy="0" r="18"/><circle cx="0" cy="42" r="14"/>',
+search:'<circle cx="-10" cy="-10" r="34" fill="none" stroke="#fff" stroke-width="12"/><path d="m16 16 30 30" stroke="#fff" stroke-width="14" stroke-linecap="round"/>',
+book:'<path d="M-52-40H-6Q0-40 0-34V44Q0 38-6 38H-52Z"/><path d="M52-40H6Q0-40 0-34V44Q0 38 6 38H52Z" opacity=".7"/>',
+atom:'<g fill="none" stroke="#fff" stroke-width="6"><ellipse rx="58" ry="20"/><ellipse rx="58" ry="20" transform="rotate(60)"/><ellipse rx="58" ry="20" transform="rotate(-60)"/></g><circle r="12"/>',
+mega:'<path d="M-50-14H-20L36-44V44L-20 14H-50Z"/><rect x="-40" y="14" width="18" height="34" rx="6"/>'};
+function cover(s,uid){const h=s.hue,id='c'+uid;let dots='';for(let i=0;i<26;i++){const x=(i*61+s.id.length*29)%320,y=(i*37+s.id.length*13)%200,r=(i%4)*.6+.5;dots+='<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="#fff" opacity="'+(.15+(i%5)*.12)+'"/>'}
+ return '<svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="'+esc(s.name)+'"><defs><radialGradient id="'+id+'b" cx="50%" cy="48%" r="70%"><stop offset="0" stop-color="'+h+'" stop-opacity=".9"/><stop offset=".45" stop-color="'+h+'" stop-opacity=".22"/><stop offset="1" stop-color="#07060b"/></radialGradient><linearGradient id="'+id+'g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="'+h+'"/></linearGradient><filter id="'+id+'f" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter></defs><rect width="320" height="200" fill="#07060b"/><rect width="320" height="200" fill="url(#'+id+'b)"/><g stroke="#fff" stroke-opacity=".06">'+Array.from({length:9},(_,i)=>'<path d="M'+(i*40)+' 200 L160 120"/>').join('')+'<path d="M0 170H320M0 150H320M0 136H320"/></g>'+dots+'<ellipse cx="160" cy="166" rx="74" ry="9" fill="'+h+'" opacity=".35" filter="url(#'+id+'f)"/><g transform="translate(160 96)"><g fill="'+h+'" filter="url(#'+id+'f)" opacity=".9">'+G[s.art]+'</g><g fill="url(#'+id+'g)">'+G[s.art]+'</g></g></svg>'}
+/* ================= render ================= */
+let mine=[],cat='all',rs='all',uid=0;
+try{mine=JSON.parse(localStorage.getItem('chill-mine')||'[]')}catch(e){}
+const thumb=s=>s.img?'<img src="'+s.img+'" alt="'+esc(s.name)+'" loading="lazy">':cover(s,uid++);
+const BADGE={mine:'b-mine',off:'b-off',com:'b-com'};
+const hueOf=s=>s.hue||'#ff7a1a';
+function card(s){const on=mine.includes(s.id);return '<article class="set" data-tilt style="--h:'+hueOf(s)+'"><div class="thumb">'+thumb(s)+'<span class="tag">'+esc(t('c_'+s.cat))+'</span><span class="badge '+BADGE[s.src]+'">'+esc(t('b_'+s.src))+'</span><span class="shine"></span></div><div class="body"><h3>'+esc(s.name)+'</h3><div class="by">'+esc(t('by'))+' '+esc(s.by)+'</div><p>'+esc(dl(s.desc))+'</p><div class="meta"><b>'+esc(s.size)+'</b>'+(s.needs&&s.needs!=='—'?'<b>'+esc(t('needs'))+': '+esc(s.needs)+'</b>':'')+'</div><div class="acts"><button class="add'+(on?' done':'')+'" type="button" data-open="'+s.id+'">'+esc(on?t('added'):t('add'))+'</button><button class="more" type="button" data-open="'+s.id+'">'+esc(t('view'))+'</button></div></div></article>'}
+const CATS=['roblox','docs','design','dev','writing','marketing','productivity'],CC={roblox:'#ff7a1a',docs:'#4f8fff',design:'#ff7ab6',dev:'#38e1ff',writing:'#5be0a8',marketing:'#ffb52e',productivity:'#b07cff'};
+function i18n(){document.documentElement.lang=L;document.querySelectorAll('[data-i]').forEach(e=>{e.textContent=t(e.dataset.i)});
+ $('h1').innerHTML=esc(t('h1a'))+' <span>'+esc(t('h1b'))+'</span> '+esc(t('h1c'));$('rTitle').innerHTML=(L==='en'?'<em>Roblox</em> corner':esc(t('r_t1'))+' <em>Roblox</em>');
+ $('q').placeholder=t('ph');$('lang').value=L;const dn=t('descnote');$('descnote').hidden=!dn;$('descnote').textContent=dn;
+ $('counts').innerHTML='<span class="count"><b>'+S.length+'</b>'+esc(t('k_skills'))+'</span><span class="count"><b>'+S.filter(s=>s.cat==='roblox').length+'</b>'+esc(t('k_roblox'))+'</span><span class="count"><b>'+S.filter(s=>s.src==='mine').length+'</b>'+esc(t('k_lih'))+'</span><span class="count"><b>'+V.length+'</b>'+esc(t('k_vid'))+'</span>';}
+function renderRail(){$('rail').innerHTML=S.filter(s=>s.cat==='roblox'&&(rs==='all'||s.src===rs)).map(card).join('');document.querySelectorAll('[data-rs]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.rs===rs))}
+function renderBar(){$('bar').innerHTML=['all'].concat(CATS).map(k=>'<button class="chip" type="button" data-c="'+k+'" aria-pressed="'+(k===cat)+'" style="--c:'+(CC[k]||'#fff')+'">'+(k==='all'?'':'<i></i>')+esc(t('c_'+k))+'<span>'+(k==='all'?S.length:S.filter(s=>s.cat===k).length)+'</span></button>').join('')}
+function renderGrid(){const q=norm($('q').value.trim());let list=cat==='mine'?S.filter(s=>mine.includes(s.id)):S.filter(s=>(cat==='all'||s.cat===cat)&&(!q||norm(s.name+' '+s.by+' '+s.desc.es+' '+s.desc.en+' '+t('c_'+s.cat)).includes(q)));
+ $('grid').innerHTML=list.length?list.map(card).join(''):'<div class="empty">'+esc(cat==='mine'?t('empty_mine'):t('empty'))+'</div>'}
+const PLAY='<svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z" fill="#111"/></svg>';
+function renderVids(){const grp=g=>'<div class="vgroup">'+esc(t('g_'+g))+'</div><div class="vgrid">'+V.filter(v=>v.g===g).map(v=>'<a class="vid" href="'+v.u+'" style="--h:'+v.h+'"><div class="vthumb">'+(v.img?'<img src="'+v.img+'" alt="" loading="lazy">':'')+'<span class="lang">'+esc(v.l)+'</span><div class="play">'+PLAY+'</div><span class="yt">'+(v.doc?'create.roblox.com':'YouTube')+'</span></div><div class="vbody"><h3>'+esc(v.t)+'</h3><span>'+esc(v.doc?t('read'):v.search?t('searchyt'):t('watch'))+'</span></div></a>').join('')+'</div>';$('vids').innerHTML=grp('skills')+grp('roblox')}
+function renderAll(){i18n();renderRail();renderBar();renderGrid();renderVids();renderBuilds();cmOptions();cmRender();$('mineN').textContent=mine.length}
+/* ================= ventana ================= */
+const dlg=$('dlg');let cur=null,tab='app';
+const row=x=>'<div class="code"><code>'+esc(x)+'</code><button class="copy" type="button" data-copy="'+esc(x)+'">'+esc(t('copy'))+'</button></div>';
+const fill=(k,s)=>t(k).replace('{n}',esc(s.name)).replace('{p}',esc(s.pack||''));
+function panel(){const s=cur;let h='';const mk=s.code&&s.code[0].startsWith('/plugin marketplace add')?s.code[0].replace('/plugin marketplace add ',''):null;
+ if(tab==='app'){
+  if(s.src==='mine')h='<ol class="inst"><li>'+t('i_m1')+'</li><li>'+t('i_m2')+row(REPO)+'</li><li>'+fill('i_m3',s)+'</li></ol>';
+  else if(s.src==='off')h='<ol class="inst"><li>'+t('i_o1')+'</li><li>'+fill('i_o2',s)+'</li><li>'+t('i_o3')+'</li></ol>';
+  else if(s.id==='roblox-studio-mcp')h='<p>'+esc(t('i_mcp'))+'</p>';
+  else if(mk)h='<ol class="inst"><li>'+t('i_c1')+row(mk)+'</li><li>'+fill('i_c2',s)+'</li></ol>';
+  else h='<ol class="inst"><li>'+t('i_g1')+'</li><li>'+t('i_g2')+'</li><li>'+t('i_g3')+'</li></ol><p class="small">'+esc(t('i_gn'))+'</p>';
+ }else{
+  if(s.src==='mine')h=row('/plugin marketplace add '+REPO)+row('/plugin install '+s.id+'@'+MARKET);
+  else if(s.src==='off')h=row('/plugin marketplace add anthropics/skills')+row('/plugin install '+s.pack+'@anthropic-agent-skills')+'<p class="small">'+fill('c_off',s)+'</p>';
+  else h=s.code.map(row).join('');
+ }
+ if(s.url)h+='<a class="gh" href="'+s.url+'">'+esc(s.url.includes('github.com')?t('gh'):t('guide'))+'</a>';
+ $('dPanel').innerHTML=h;document.querySelectorAll('#dTabs .tab').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===tab))}
+function open(id){cur=S.find(s=>s.id===id);if(!cur)return;
+ $('dCover').innerHTML=thumb(cur);$('dBy').textContent=t('by')+' '+cur.by+' · '+t('b_'+cur.src)+' · '+cur.size+(cur.needs&&cur.needs!=='—'?' · '+t('needs')+': '+cur.needs:'');
+ $('dTitle').textContent=cur.name;$('dDesc').textContent=dl(cur.desc);$('dTry').textContent=t('try')+' "'+dl(cur.try)+'"';
+ $('dTabs').innerHTML='<button class="tab" role="tab" type="button" data-t="app">'+esc(t('tab_app'))+'</button><button class="tab" role="tab" type="button" data-t="code">'+esc(t('tab_code'))+'</button>';
+ tab=(cur.src==='com'&&!(cur.code&&cur.code[0].startsWith('/plugin marketplace')))?'code':'app';panel();
+ const on=mine.includes(cur.id),hv=$('dHave');hv.textContent=on?t('unhave'):t('have');hv.classList.toggle('undo',on);
+ sfx('open');if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','')}
+function shut(){sfx('close');if(dlg.close)dlg.close();else dlg.removeAttribute('open')}
+function toast(x){const e=$('toast');e.textContent=x;e.classList.add('on');clearTimeout(toast.h);toast.h=setTimeout(()=>e.classList.remove('on'),2200)}
+/* ================= eventos ================= */
+document.addEventListener('click',e=>{const o=e.target.closest('[data-open]');if(o){open(o.dataset.open);return}
+ const c=e.target.closest('[data-c]');if(c){cat=c.dataset.c;sfx('chip');renderBar();renderGrid();return}
+ const r=e.target.closest('[data-rs]');if(r){rs=r.dataset.rs;sfx('chip');renderRail();$('rail').scrollTo({left:0})}});
+$('q').addEventListener('input',()=>{if(cat==='mine')cat='all';renderBar();renderGrid()});
+$('q').addEventListener('keydown',e=>{if(e.key==='Enter')$('todas').scrollIntoView({block:'start'})});
+$('lang').addEventListener('change',()=>{L=$('lang').value;try{localStorage.setItem('cs-lang',L)}catch(e){};sfx('chip');renderAll()});
+$('dTabs').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(b){tab=b.dataset.t;sfx('chip');panel()}});
+$('dPanel').addEventListener('click',async e=>{const b=e.target.closest('[data-copy]');if(!b)return;try{await navigator.clipboard.writeText(b.dataset.copy);b.textContent=t('copied');sfx('copy');toast(t('copied'))}catch(err){toast(t('copyfail'))}});
+$('dClose').addEventListener('click',shut);dlg.addEventListener('click',e=>{if(e.target===dlg)shut()});
+$('dHave').addEventListener('click',e=>{const i=mine.indexOf(cur.id);if(i<0){mine.push(cur.id);sfx('add');confetti(e.clientX,e.clientY);toast(cur.name+' '+t('t_added'))}else{mine.splice(i,1);sfx('remove');toast(t('t_removed'))}try{localStorage.setItem('chill-mine',JSON.stringify(mine))}catch(err){};dlg.close();renderRail();renderGrid();$('mineN').textContent=mine.length});
+$('mineBtn').addEventListener('click',()=>{actx();sfx('click');cat='mine';$('q').value='';renderBar();renderGrid();$('todas').scrollIntoView({block:'start'})});
+$('prev').addEventListener('click',()=>{sfx('click');$('rail').scrollBy({left:-340,behavior:'smooth'})});
+$('next').addEventListener('click',()=>{sfx('click');$('rail').scrollBy({left:340,behavior:'smooth'})});
+$('rail').addEventListener('keydown',e=>{if(e.key==='ArrowRight')$('rail').scrollBy({left:340,behavior:'smooth'});if(e.key==='ArrowLeft')$('rail').scrollBy({left:-340,behavior:'smooth'})});
+let lastH=null;document.addEventListener('pointerover',e=>{const c=e.target.closest('.set,.vid');if(c&&c!==lastH&&e.pointerType==='mouse'){lastH=c;sfx('hover')}if(!c)lastH=null});
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,FINE=matchMedia('(hover:hover)').matches&&!RM;
+if(FINE){document.addEventListener('pointermove',e=>{const c=e.target.closest('[data-tilt]');if(!c)return;const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.style.transform='perspective(900px) rotateX('+((.5-y)*8)+'deg) rotateY('+((x-.5)*10)+'deg) translateY(-4px)';c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%')});
+ document.addEventListener('pointerout',e=>{const c=e.target.closest('[data-tilt]');if(c&&!c.contains(e.relatedTarget))c.style.transform=''})}
+/* ================= builds + visor ================= */
+let bf='all',lbList=[],lbI=0;
+const pretty=n=>n.replace(/([a-z])([A-Z])/g,'$1 $2');
+function renderBuilds(){lbList=B.filter(b=>bf==='all'||b[1]===bf);$('bgrid').innerHTML=lbList.map((b,i)=>'<button class="bitem" type="button" data-lb="'+i+'"><img src="img/b/'+b[0]+'.jpg" alt="'+esc(pretty(b[0]))+'" loading="lazy"><span>'+esc(pretty(b[0]))+'</span></button>').join('');document.querySelectorAll('[data-bf]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.bf===bf))}
+const lb=$('lb');
+function lbShow(i){lbI=(i+lbList.length)%lbList.length;const it=lbList[lbI];if(!it)return;if(it.src){$('lbImg').src=it.src;$('lbCap').textContent=it.cap}else{$('lbImg').src='img/b/'+it[0]+'.jpg';$('lbCap').textContent=pretty(it[0])}if(!lb.open)lb.showModal?lb.showModal():lb.setAttribute('open','');sfx('open')}
+$('lbPrev').addEventListener('click',()=>{sfx('click');lbShow(lbI-1)});$('lbNext').addEventListener('click',()=>{sfx('click');lbShow(lbI+1)});
+$('lbClose').addEventListener('click',()=>{sfx('close');lb.close()});lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
+lb.addEventListener('keydown',e=>{if(e.key==='ArrowRight')lbShow(lbI+1);if(e.key==='ArrowLeft')lbShow(lbI-1)});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-lb]');if(b){lbList=B.filter(x=>bf==='all'||x[1]===bf);lbShow(+b.dataset.lb);return}const f=e.target.closest('[data-bf]');if(f){bf=f.dataset.bf;sfx('chip');renderBuilds()}
+ const cp=e.target.closest('[data-cp]');if(cp){lbList=CM.posts.map(p=>({src:blobUrl(p.a),cap:p.t||''}));lbShow(+cp.dataset.cp)}});
+/* ================= comunidad (base de datos + subidas) ================= */
+const CM={db:null,user:null,assets:null,me:null,owner:false,posts:[],names:{},loaded:false,state:'loading',file:null,busy:false};
+const blobUrl=id=>'/_blob/'+encodeURIComponent(id);
+function cmOptions(){const sel=$('cmS'),v=sel.value;sel.innerHTML='<option value="">'+esc(t('cm_noskill'))+'</option>'+S.map(x=>'<option value="'+esc(x.id)+'">'+esc(x.name)+'</option>').join('');sel.value=v}
+function cmNote(){const k=CM.state==='off'?'cm_off':CM.state==='slow'?'cm_slow':CM.state==='err'?'cm_err':!CM.loaded?'cm_loading':CM.assets&&CM.me?'cm_can':'cm_view';$('cmNote').textContent=t(k)+(k==='cm_can'?' '+t('cm_limit'):'');$('cmForm').hidden=!(CM.loaded&&CM.assets&&CM.me)}
+async function cmRender(){cmNote();const g=$('cgrid');if(!CM.loaded){g.innerHTML='';return}
+ if(!CM.posts.length){g.innerHTML='<div class="empty">'+esc(t('cm_empty'))+'</div>';return}
+ const ids=[...new Set(CM.posts.map(p=>p.owner))];
+ if(CM.user){try{const ps=await CM.user.profiles(ids);ids.forEach(i=>{CM.names[i]=(ps&&ps[i]&&ps[i].name)||''})}catch(e){}}
+ g.innerHTML=CM.posts.map((p,i)=>{const sk=S.find(x=>x.id===p.s);const mineP=p.owner===CM.me;return '<article class="post"><img src="'+blobUrl(p.a)+'" alt="'+esc(p.t)+'" loading="lazy" data-cp="'+i+'"><div><b>'+esc(p.t||'—')+'</b><small>'+esc(CM.names[p.owner]||t('cm_some'))+(sk?' · '+esc(sk.name):'')+'</small>'+((mineP||CM.owner)?'<button type="button" data-del="'+i+'">'+esc(t('cm_del'))+'</button>':'')+'</div></article>'}).join('')}
+async function cmInit(){const C=window.claude;if(!C||typeof C.use!=='function'){CM.state='off';cmNote();return}
+ const timer=setTimeout(()=>{if(!CM.loaded){CM.state='slow';cmNote()}},10000);
+ try{const r=await Promise.all([C.use('user'),C.use('db'),C.use('assets')]);CM.user=r[0];CM.db=r[1];CM.assets=r[2]}catch(e){}
+ if(!CM.db){clearTimeout(timer);CM.state='off';cmNote();return}
+ if(CM.user){try{CM.me=await CM.user.id();CM.owner=!!(await CM.user.isOwner())}catch(e){}}
+ CM.db.collection('gallery').onSnapshot(snap=>{const all=[];snap.docs.forEach(d=>{const b=d.data()||{};(Array.isArray(b.posts)?b.posts:[]).forEach(p=>{if(p&&typeof p.a==='string'&&/^[\w.~:@+-]+$/.test(p.a))all.push({owner:d.id,a:p.a,t:String(p.t||'').slice(0,80),s:String(p.s||''),at:+p.at||0})})});
+   all.sort((x,y)=>y.at-x.at);CM.posts=all;if(!snap.metadata.fromCache){clearTimeout(timer);CM.state='ok'}CM.loaded=true;cmRender()},
+  ()=>{clearTimeout(timer);CM.state='err';CM.loaded=true;cmRender()});
+}
+function cmPick(f){if(!f)return;if(!/^image\//.test(f.type)){toast(t('cm_notimg'));return}CM.file=f;const im=$('cmPrev');im.src=URL.createObjectURL(f);im.hidden=false;$('cmSend').disabled=false;sfx('chip')}
+async function shrink(f){try{const bm=await createImageBitmap(f);const k=Math.min(1,1600/Math.max(bm.width,bm.height));const c=document.createElement('canvas');c.width=Math.round(bm.width*k);c.height=Math.round(bm.height*k);c.getContext('2d').drawImage(bm,0,0,c.width,c.height);return await new Promise(r=>c.toBlob(b=>r(b||f),'image/jpeg',.86))}catch(e){return f}}
+$('cmFile').addEventListener('change',e=>cmPick(e.target.files[0]));
+const dz=$('cmDrop');['dragenter','dragover'].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();dz.classList.add('over')}));['dragleave','drop'].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();dz.classList.remove('over')}));dz.addEventListener('drop',e=>cmPick(e.dataTransfer.files[0]));
+$('cmForm').addEventListener('submit',async e=>{e.preventDefault();if(!CM.file||CM.busy||!CM.assets||!CM.me)return;CM.busy=true;const btn=$('cmSend');btn.disabled=true;btn.textContent=t('cm_sending');
+ try{const blob=await shrink(CM.file);const up=await CM.assets.upload(blob);const ref=CM.db.doc('gallery/'+CM.me);const cur=await ref.get();let posts=cur.exists&&Array.isArray(cur.data().posts)?cur.data().posts.slice():[];
+  posts.unshift({a:up.id,t:$('cmT').value.trim().slice(0,80),s:$('cmS').value,at:Date.now()});const old=posts.splice(12);await ref.set({posts});for(const o of old){try{await CM.assets.delete(o.a)}catch(err){}}
+  CM.file=null;$('cmPrev').hidden=true;$('cmT').value='';$('cmFile').value='';sfx('add');confetti(innerWidth/2,innerHeight/2);toast(t('cm_ok'))}catch(err){toast(t('cm_err'))}
+ CM.busy=false;btn.textContent=t('cm_send');btn.disabled=!CM.file});
+document.addEventListener('click',async e=>{const b=e.target.closest('[data-del]');if(!b||CM.busy)return;const p=CM.posts[+b.dataset.del];if(!p)return;CM.busy=true;
+ try{const ref=CM.db.doc('gallery/'+p.owner);const cur=await ref.get();const posts=(cur.exists&&Array.isArray(cur.data().posts)?cur.data().posts:[]).filter(x=>x.a!==p.a);await ref.set({posts});try{await CM.assets.delete(p.a)}catch(err){}sfx('remove')}catch(err){toast(t('cm_err'))}CM.busy=false});
+/* ================= confeti de chispas al agregar ================= */
+const bc=$('burst'),bx=bc.getContext('2d');let bp=[],bRun=false;
+function confetti(x,y){if(RM)return;const d=Math.min(devicePixelRatio||1,2);bc.width=innerWidth*d;bc.height=innerHeight*d;bx.setTransform(d,0,0,d,0,0);for(let i=0;i<90;i++){const a=Math.random()*Math.PI*2,v=180+Math.random()*520;bp.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-260,l:1,c:['#ff7a1a','#ffd23c','#38e1ff','#ff3d7f','#2bd47a'][i%5]})}if(!bRun){bRun=true;let last=performance.now();const step=n=>{const dt=Math.min(.033,(n-last)/1000);last=n;bx.clearRect(0,0,innerWidth,innerHeight);bx.globalCompositeOperation='lighter';bp=bp.filter(p=>(p.l-=dt*.9)>0);for(const p of bp){p.vy+=900*dt;p.vx*=.99;const ox=p.x,oy=p.y;p.x+=p.vx*dt;p.y+=p.vy*dt;bx.strokeStyle=p.c;bx.globalAlpha=p.l;bx.lineWidth=3;bx.beginPath();bx.moveTo(ox,oy);bx.lineTo(p.x,p.y);bx.stroke()}bx.globalAlpha=1;if(bp.length)requestAnimationFrame(step);else{bRun=false;bx.clearRect(0,0,innerWidth,innerHeight)}};requestAnimationFrame(step)}}
+/* ================= escena VFX con físicas ================= */
+const cv=$('fx'),cx=cv.getContext('2d');let W=0,H=0,DPR=1,ground=0,core={x:0,y:0},P=[],rings=[],bolts=[],flash=0,mouse={x:-999,y:-999,px:-999,py:-999,in:false},tnow=0,nextBolt=2.5,visible=true,charge=0,shake=0,nova=0;
+const MOTES=Array.from({length:46},(_,i)=>({a:Math.random()*6.28,r:70+Math.random()*90,sp:(.5+Math.random()*1.1)*(i%2?1:-1)*.8,tilt:.22+Math.random()*.3,yo:(Math.random()-.5)*30,c:i%3}));
+const SC=()=>W<1000?.75:1;
+let STARS=[],RIDGES=[];
+function mkBack(){const R=(()=>{let x=7;return()=>(x=(x*16807)%2147483647)/2147483647})();STARS=Array.from({length:Math.round(W*H/5200)},()=>({x:R()*W,y:R()*ground*.92,r:R()*1.3+.2,p:R()*6.28,s:.6+R()*1.6}));
+ RIDGES=[0,1,2].map(l=>{const pts=[],n=Math.ceil(W/14)+8,amp=[70,52,34][l],base=ground-[150,92,40][l]*(W<1000?.6:1);let a=R()*9,b=R()*9;for(let i=0;i<n;i++){const x=(i-4)*14;pts.push([x,base-Math.abs(Math.sin(x*.0042+a))*amp-Math.sin(x*.013+b)*amp*.32-Math.sin(x*.041+a*2)*amp*.09])}return pts})}
+function size(){DPR=Math.min(devicePixelRatio||1,1.5);const r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*DPR;cv.height=H*DPR;cx.setTransform(DPR,0,0,DPR,0,0);ground=H*(W<1000?.9:.8);core.x=W<1000?W*.5:W*.72;core.y=ground-(W<1000?95:170);mkBack()}
+const rnd=(a,b)=>a+Math.random()*(b-a);
+function spark(x,y,vx,vy,life,hot){if(P.length>1400)return;P.push({k:'s',x,y,ox:x,oy:y,vx,vy,l:life,m:life,hot:hot||1})}
+function ember(){P.push({k:'e',x:core.x+rnd(-60,60),y:core.y+rnd(-20,40),vx:rnd(-20,20),vy:rnd(-90,-40),l:rnd(2.5,5),m:5,s:rnd(1,2.6),ph:rnd(0,6)})}
+function smoke(x,y,n,big){for(let i=0;i<n;i++)P.push({k:'m',x:x+rnd(-20,20),y:y+rnd(-10,10),vx:rnd(-30,30),vy:rnd(-60,-20),l:rnd(1.6,3),m:3,r:rnd(18,40)*(big||1)})}
+function explode(x,y,power){const n=Math.round(150*power);for(let i=0;i<n;i++){const a=rnd(0,Math.PI*2),v=rnd(120,780)*power;spark(x,y,Math.cos(a)*v,Math.sin(a)*v-rnd(80,260),rnd(.8,2.2),1)}rings.push({x,y,r:6,l:1});smoke(x,y,14,1.3);flash=Math.min(1,flash+.55*power)}
+function bolt(){const pts=[];let x=core.x+rnd(-120,120),y=-10;pts.push([x,y]);while(y<core.y-20){y+=rnd(28,56);x+=rnd(-34,34)+(core.x-x)*.18;pts.push([x,y])}pts.push([core.x,core.y]);bolts.push({pts,l:.32});flash=Math.min(1,flash+.35);for(let i=0;i<40;i++){const a=rnd(0,Math.PI*2),v=rnd(100,420);spark(core.x,core.y,Math.cos(a)*v,Math.sin(a)*v-200,rnd(.6,1.4),1.2)}sfx('zap')}
+function update(dt){tnow+=dt;
+ const dC=mouse.in?Math.hypot(mouse.x-core.x,mouse.y-core.y):1e9,tgt=dC<280?1-dC/280:0;charge+=(tgt-charge)*Math.min(1,dt*4);shake=Math.max(0,shake-dt*1.8);nova=Math.max(0,nova-dt*1.2);
+ for(const m of MOTES)m.a+=m.sp*dt*(1+charge*2.5+nova*4);
+ if(charge>.55&&Math.random()<dt*6){const a=Math.atan2(mouse.y-core.y,mouse.x-core.x)+rnd(-.4,.4),v=rnd(200,500);spark(core.x+Math.cos(a)*40,core.y+Math.sin(a)*40,Math.cos(a)*v,Math.sin(a)*v-80,rnd(.5,1),1)}
+ if(Math.random()<dt*(8+charge*30))ember();
+ if(Math.random()<dt*(2+charge*10)){const a=rnd(-Math.PI,0),v=rnd(80,260);spark(core.x+rnd(-14,14),core.y,Math.cos(a)*v,Math.sin(a)*v-120,rnd(1,2),.9)}
+ if(tnow>nextBolt){bolt();nextBolt=tnow+rnd(9,15)}
+ if(mouse.in){const dx=mouse.x-mouse.px,dy=mouse.y-mouse.py,sp=Math.hypot(dx,dy);if(sp>2){const n=Math.min(6,1+sp/12|0);for(let i=0;i<n;i++)spark(mouse.x,mouse.y,dx*rnd(4,9)+rnd(-60,60),dy*rnd(4,9)+rnd(-120,20),rnd(.4,1),.8)}mouse.px=mouse.x;mouse.py=mouse.y}
+ for(const p of P){p.l-=dt;
+  if(p.k==='s'){p.ox=p.x;p.oy=p.y;p.vy+=980*dt;p.vx*=(1-.25*dt);p.x+=p.vx*dt;p.y+=p.vy*dt;
+    if(p.y>ground){p.y=ground;if(Math.abs(p.vy)>60){p.vy*=-.42;p.vx*=.7;if(Math.random()<.08&&p.hot>.8)spark(p.x,ground-1,rnd(-80,80),rnd(-160,-60),.4,.6)}else{p.vy=0;p.vx*=.86}}
+    if(p.x<0||p.x>W){p.vx*=-.5;p.x=Math.max(0,Math.min(W,p.x))}}
+  else if(p.k==='e'){p.ph+=dt*3;p.vx+=Math.sin(p.ph+p.y*.02)*40*dt;if(mouse.in){const dx=mouse.x-p.x,dy=mouse.y-p.y,d=Math.hypot(dx,dy)+30;p.vx+=dx/d*120*dt;p.vy+=dy/d*60*dt}p.vy-=8*dt;p.x+=p.vx*dt;p.y+=p.vy*dt}
+  else if(p.k==='m'){p.x+=p.vx*dt;p.y+=p.vy*dt;p.vx*=.98;p.r+=14*dt}}
+ P=P.filter(p=>p.l>0&&p.y>-40);
+ for(const r of rings){r.r+=520*dt;r.l-=dt*1.6}rings=rings.filter(r=>r.l>0);
+ for(const b of bolts)b.l-=dt;bolts=bolts.filter(b=>b.l>0);flash=Math.max(0,flash-dt*2.2)}
+function zig(x1,y1,x2,y2,d,o){if(d<4){o.push([x2,y2]);return}const mx=(x1+x2)/2+rnd(-d,d),my=(y1+y2)/2+rnd(-d,d);zig(x1,y1,mx,my,d/2,o);zig(mx,my,x2,y2,d/2,o)}
+function strokeArc(c,pts,a){for(const [w,col] of [[7,'rgba(56,225,255,'+a*.22+')'],[2.4,'rgba(150,235,255,'+a+')'],[1,'rgba(255,255,255,'+a+')']]){c.strokeStyle=col;c.lineWidth=w;c.beginPath();pts.forEach((q,i)=>i?c.lineTo(q[0],q[1]):c.moveTo(q[0],q[1]));c.stroke()}}
+function motes(c,front){for(const m of MOTES){const z=Math.sin(m.a);if((z>=0)!==front)continue;const r=m.r*SC()*(1+charge*.15);for(let k=0;k<6;k++){const a=m.a-m.sp*.05*k,x=core.x+Math.cos(a)*r,y=core.y+Math.sin(a)*r*m.tilt+m.yo,zz=Math.sin(a),al=(1-k/6)*(.35+.65*(zz+1)/2);c.fillStyle=(m.c===0?'rgba(255,190,110,':m.c===1?'rgba(110,230,255,':'rgba(255,110,170,')+al+')';const sz=(1.2+(zz+1)*1.3)*(1-k/8);c.beginPath();c.arc(x,y,sz,0,6.283);c.fill()}}}
+function draw(){const c=cx;c.save();if(shake>0)c.translate(rnd(-1,1)*shake*14,rnd(-1,1)*shake*14);
+ const px=mouse.in?(mouse.x-W/2)/W:0,py=mouse.in?(mouse.y-H/2)/H:0;
+ let sky=c.createLinearGradient(0,0,0,ground);sky.addColorStop(0,'#04050c');sky.addColorStop(.55,'#0b0b1c');sky.addColorStop(.85,'#1c1030');sky.addColorStop(1,'#33162c');c.globalCompositeOperation='source-over';c.fillStyle=sky;c.fillRect(-30,-30,W+60,ground+30);
+ c.globalCompositeOperation='lighter';
+ for(const st of STARS){const a=.25+.55*(.5+.5*Math.sin(tnow*st.s+st.p));c.fillStyle='rgba(220,230,255,'+a*(1-st.y/ground*.7)+')';c.fillRect(st.x-px*6*st.r,st.y-py*4*st.r,st.r*1.4,st.r*1.4)}
+ const AU=[[.18,'56,225,255',.11],[.30,'150,90,255',.09],[.10,'255,120,170',.05]];
+ AU.forEach(([yb,col,al],k)=>{const y0=ground*yb,hh=ground*(.32+k*.06),sp=tnow*(.05+k*.025);let ag=c.createLinearGradient(0,y0-30,0,y0+hh);ag.addColorStop(0,'rgba('+col+',0)');ag.addColorStop(.25,'rgba('+col+','+al+')');ag.addColorStop(1,'rgba('+col+',0)');c.fillStyle=ag;c.beginPath();c.moveTo(-20,y0+hh);for(let x=-20;x<=W+20;x+=24){const y=y0+Math.sin(x*.0022+sp*6+k)*38+Math.sin(x*.0061-sp*9+k*2)*16-px*20*(k+1);c.lineTo(x,y)}c.lineTo(W+20,y0+hh);c.closePath();c.fill()});
+ let hz=c.createRadialGradient(core.x,ground,0,core.x,ground,W*.7);hz.addColorStop(0,'rgba(255,120,60,'+(.22+charge*.15)+')');hz.addColorStop(.4,'rgba(170,60,150,.07)');hz.addColorStop(1,'rgba(0,0,0,0)');c.fillStyle=hz;c.fillRect(-30,ground-H,W+60,H*1.3);
+ c.globalCompositeOperation='source-over';
+ const RC=['#120e24','#0c0a19','#07060f'];RIDGES.forEach((pts,l)=>{const ox=-px*(10+l*16);c.fillStyle=RC[l];c.beginPath();c.moveTo(pts[0][0]+ox,ground+2);for(const q of pts)c.lineTo(q[0]+ox,q[1]);c.lineTo(pts[pts.length-1][0]+ox,ground+2);c.closePath();c.fill();if(l===0){c.strokeStyle='rgba(150,120,255,.12)';c.lineWidth=1;c.beginPath();pts.forEach((q,i)=>i?c.lineTo(q[0]+ox,q[1]):c.moveTo(q[0]+ox,q[1]));c.stroke()}});
+ const fl=c.createLinearGradient(0,ground,0,H);fl.addColorStop(0,'#0d0915');fl.addColorStop(1,'#040307');c.fillStyle=fl;c.fillRect(-30,ground,W+60,H-ground+30);
+ c.globalCompositeOperation='lighter';c.lineWidth=1;for(let j=0;j<14;j++){const f=j/14,y=ground+3+(H-ground)*f*f,w=(80+f*W*.5)*(.7+.3*Math.sin(tnow*.6+j*1.7)),xo=Math.sin(tnow*.4+j)*20;c.strokeStyle='rgba(255,150,90,'+(.12*(1-f)+.02)*(1+charge)+')';c.beginPath();c.moveTo(core.x-w/2+xo,y);c.lineTo(core.x+w/2+xo,y);c.stroke()}
+ c.globalCompositeOperation='source-over';c.fillStyle='rgba(255,170,120,.10)';c.fillRect(-30,ground,W+60,1);
+ const sc=SC(),pulse=1+Math.sin(tnow*2.2)*.05+charge*.22+nova*.6,R=48*sc*pulse,fl1=.85+Math.random()*.15;
+ c.globalCompositeOperation='lighter';
+ let g=c.createRadialGradient(core.x,ground,0,core.x,ground,380*sc);g.addColorStop(0,'rgba(255,110,30,'+(.3+charge*.25+nova*.4)*fl1+')');g.addColorStop(1,'rgba(255,60,20,0)');c.fillStyle=g;c.beginPath();c.ellipse(core.x,ground,380*sc,62*sc,0,0,6.283);c.fill();
+ const ry=ground+(ground-core.y)*.18;g=c.createRadialGradient(core.x,ry,0,core.x,ry,R*2.2);g.addColorStop(0,'rgba(255,170,90,'+(.14+charge*.12)+')');g.addColorStop(1,'rgba(255,100,40,0)');c.fillStyle=g;c.beginPath();c.ellipse(core.x,ry,R*1.6,R*.5,0,0,6.283);c.fill();
+ g=c.createRadialGradient(core.x,core.y,0,core.x,core.y,290*sc*pulse);g.addColorStop(0,'rgba(255,160,80,'+(.5+charge*.3)+')');g.addColorStop(.3,'rgba(255,70,60,.16)');g.addColorStop(.6,'rgba(120,40,160,.08)');g.addColorStop(1,'rgba(60,20,90,0)');c.fillStyle=g;c.fillRect(core.x-320,core.y-320,640,640);
+ motes(c,false);
+ const BL=['255,120,40','255,60,130','56,225,255','255,200,90','170,90,255'];
+ for(let i=0;i<5;i++){const a=tnow*(.7+i*.29)+i*1.3,ox=Math.cos(a)*R*.38,oy=Math.sin(a*1.31)*R*.32;g=c.createRadialGradient(core.x+ox,core.y+oy,0,core.x+ox,core.y+oy,R*.95);g.addColorStop(0,'rgba('+BL[i]+',.55)');g.addColorStop(1,'rgba('+BL[i]+',0)');c.fillStyle=g;c.beginPath();c.arc(core.x+ox,core.y+oy,R*.95,0,6.283);c.fill()}
+ g=c.createRadialGradient(core.x,core.y,0,core.x,core.y,R*.62);g.addColorStop(0,'#fffdf2');g.addColorStop(.4,'rgba(255,220,150,.95)');g.addColorStop(1,'rgba(255,120,60,0)');c.fillStyle=g;c.beginPath();c.arc(core.x,core.y,R*.62,0,6.283);c.fill();
+ g=c.createRadialGradient(core.x,core.y,R*.82,core.x,core.y,R*1.08);g.addColorStop(0,'rgba(255,220,180,0)');g.addColorStop(.6,'rgba(255,220,180,'+(.35+charge*.3)+')');g.addColorStop(1,'rgba(255,220,180,0)');c.fillStyle=g;c.beginPath();c.arc(core.x,core.y,R*1.08,0,6.283);c.fill();
+ c.lineCap='round';for(let i=0;i<3;i++){const r=(70+i*20)*sc*pulse,a0=tnow*(1.2+i*.5+charge*2)*(i%2?-1:1);c.strokeStyle=i===1?'rgba(56,225,255,.7)':'rgba(255,150,60,.65)';c.lineWidth=2.6-i*.6;c.beginPath();c.arc(core.x,core.y,r,a0,a0+Math.PI*1.1);c.stroke();c.beginPath();c.arc(core.x,core.y,r,a0+Math.PI*1.35,a0+Math.PI*1.75);c.stroke()}
+ const nA=2+Math.round(charge*5+nova*8);for(let i=0;i<nA;i++){if(Math.random()<.35)continue;const a=rnd(0,6.283),x1=core.x+Math.cos(a)*R*.8,y1=core.y+Math.sin(a)*R*.8;let x2,y2;if(charge>.3&&i===0&&Math.random()<charge){x2=mouse.x;y2=mouse.y}else{const L=R+rnd(25,70+charge*90+nova*160),b=a+rnd(-.5,.5);x2=core.x+Math.cos(b)*L;y2=core.y+Math.sin(b)*L}const o=[[x1,y1]];zig(x1,y1,x2,y2,Math.hypot(x2-x1,y2-y1)*.22,o);strokeArc(c,o,rnd(.5,1))}
+ motes(c,true);
+ for(const p of P){const k=p.l/p.m;
+  if(p.k==='s'){const hot=k*p.hot;c.strokeStyle=hot>.65?'rgba(255,250,220,'+Math.min(1,k*1.4)+')':hot>.35?'rgba(255,170,60,'+k*1.3+')':'rgba(255,70,30,'+k*1.3+')';c.lineWidth=1+hot*1.3;c.beginPath();c.moveTo(p.ox-(p.x-p.ox)*.9,p.oy-(p.y-p.oy)*.9);c.lineTo(p.x,p.y);c.stroke();if(p.y>=ground-1&&k>.2){c.fillStyle='rgba(255,120,40,'+k*.25+')';c.beginPath();c.ellipse(p.x,ground+1,10,2.5,0,0,Math.PI*2);c.fill()}}
+  else if(p.k==='e'){const a=Math.min(1,k*2)*(.6+.4*Math.sin(p.ph*4));const rr=p.s*3;g=c.createRadialGradient(p.x,p.y,0,p.x,p.y,rr*3);g.addColorStop(0,'rgba(255,200,120,'+a+')');g.addColorStop(.3,'rgba(255,110,40,'+a*.6+')');g.addColorStop(1,'rgba(255,60,20,0)');c.fillStyle=g;c.fillRect(p.x-rr*3,p.y-rr*3,rr*6,rr*6)}}
+ for(const b of bolts){const a=b.l/.32;for(const [w,col] of [[10,'rgba(56,225,255,'+a*.25+')'],[3.2,'rgba(160,240,255,'+a+')'],[1.2,'rgba(255,255,255,'+a+')']]){c.strokeStyle=col;c.lineWidth=w;c.beginPath();b.pts.forEach((q,i)=>i?c.lineTo(q[0]+rnd(-2,2),q[1]):c.moveTo(q[0],q[1]));c.stroke()}}
+ for(const r of rings){c.strokeStyle='rgba(255,200,140,'+r.l*.8+')';c.lineWidth=6*r.l+1;c.beginPath();c.ellipse(r.x,r.y,r.r,r.r*.55,0,0,Math.PI*2);c.stroke();c.strokeStyle='rgba(56,225,255,'+r.l*.4+')';c.lineWidth=2;c.beginPath();c.ellipse(r.x,r.y,r.r*.7,r.r*.38,0,0,Math.PI*2);c.stroke()}
+ c.globalCompositeOperation='source-over';
+ for(const p of P)if(p.k==='m'){const k=p.l/p.m;g=c.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r);g.addColorStop(0,'rgba(40,30,45,'+k*.35+')');g.addColorStop(1,'rgba(40,30,45,0)');c.fillStyle=g;c.fillRect(p.x-p.r,p.y-p.r,p.r*2,p.r*2)}
+ const vg=c.createLinearGradient(0,0,W*.65,0);vg.addColorStop(0,'rgba(5,4,10,.82)');vg.addColorStop(1,'rgba(5,4,10,0)');c.fillStyle=vg;c.fillRect(0,0,W,H);
+ if(flash>0){c.globalCompositeOperation='lighter';c.fillStyle='rgba(255,200,150,'+flash*.28+')';c.fillRect(-30,-30,W+60,H+60);c.globalCompositeOperation='source-over'}c.restore()}
+let last=performance.now();
+function loop(n){const dt=Math.min(.033,(n-last)/1000);last=n;if(visible&&!document.hidden){update(dt);draw()}requestAnimationFrame(loop)}
+size();addEventListener('resize',size);
+const hero=$('inicio');
+hero.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;if(!mouse.in){mouse.px=mouse.x;mouse.py=mouse.y}mouse.in=true});
+hero.addEventListener('pointerleave',()=>{mouse.in=false});
+cv.addEventListener('pointerdown',e=>{actx();const r=cv.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;if(Math.hypot(x-core.x,y-core.y)<90*SC()){explode(core.x,core.y,2.2);for(let i=1;i<4;i++)rings.push({x:core.x,y:core.y,r:6+i*30,l:1});shake=1;nova=1;flash=1;sfx('boom');setTimeout(()=>sfx('zap'),120)}else{explode(x,y,1);shake=Math.max(shake,.35);sfx('boom')}});
+const io=new IntersectionObserver(es=>{visible=es[0].isIntersecting});io.observe(hero);
+if(RM){for(let i=0;i<60;i++){ember();update(.05)}draw()}else{for(let i=0;i<90;i++)update(1/30);requestAnimationFrame(loop)}
+paintSnd();renderAll();cmInit();
+}
+</script>
+</body>
+</html>
