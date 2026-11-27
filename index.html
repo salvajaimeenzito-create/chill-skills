@@ -68,6 +68,51 @@ select.ctl{appearance:none;padding:0 12px;text-align:center}
 @media(max-width:700px){.hero h1{font-size:34px}.hero p{font-size:16px}}
 /* sections */
 .band{padding:clamp(40px,6vw,80px) 0}
+.dice{cursor:pointer;background:linear-gradient(135deg,#ff9a3c33,#ff3d7f33);border-color:#ff8a3c66;color:#fff;font:inherit;font-weight:800}
+.dice:hover{border-color:#ffb36a;box-shadow:0 0 22px #ff7a1a55}
+.vlt{background:radial-gradient(900px 400px at 85% 0,#6b3cff22,transparent),var(--bg)}
+.vsteps{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 20px}
+.vsteps>span{display:flex;gap:10px;align-items:center;background:#ffffff0a;border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-weight:700;color:#e7def2}
+.vsteps b{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:#8b5cf6;color:#fff;font-size:14px;flex:none}
+.vsteps a{color:#c4b5fd}
+.vgrid2{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:18px}
+.vcard{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+.vcard:hover{transform:translateY(-4px);border-color:var(--h)}
+.vcard img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.vcard .vb{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.vcard h3{font:700 20px Unbounded,sans-serif}
+.vcard p{color:var(--soft);line-height:1.5}
+.vcard .vt{display:flex;gap:6px;flex-wrap:wrap}
+.vcard .vt span{font-size:12px;font-weight:800;padding:3px 9px;border-radius:999px;background:#ffffff10;color:#d9d0e6}
+.vdl{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:14px;text-decoration:none;font-weight:800;color:#fff;background:linear-gradient(135deg,#8b5cf6,#6d28d9);box-shadow:0 8px 24px #6d28d955}
+.vdl:hover{filter:brightness(1.15)}
+.vcom{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:12px}
+.vcom a{display:flex;flex-direction:column;gap:4px;text-decoration:none;background:#ffffff08;border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+.vcom a:hover{border-color:#8b5cf6}
+.vcom b{color:#fff}.vcom small{color:var(--soft);line-height:1.45}.vcom i{font-style:normal;color:#c4b5fd;font-size:13px;font-weight:700}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px;margin-top:6px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
+.pcard::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--h)}
+.pcard .ph{display:flex;align-items:center;gap:10px;font-weight:800;font-size:14px;color:var(--soft)}
+.pcard .ph i{font-style:normal;font-size:22px}
+.pcard q{quotes:none;font:600 17px/1.5 Manrope,sans-serif;color:#f1ebfa;flex:1}
+.pcard .pf{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pcard .pf small{color:var(--soft);font-weight:700;font-size:13px;margin-right:auto}
+.pcopy{border:1px solid #ffffff24;background:#ffffff10;border-radius:12px;min-height:40px;padding:0 14px;font-weight:800}
+.pcopy:hover{background:#fff;color:#111}
+.pcopy.ok{background:#2bd47a;color:#04210f;border-color:#2bd47a}
+.faq{display:grid;gap:10px;max-width:900px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:0 20px}
+.faq summary{cursor:pointer;list-style:none;font:700 18px Manrope,sans-serif;padding:18px 30px 18px 0;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:26px;color:var(--fire);transition:transform .25s}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{color:var(--soft);padding:0 0 18px;line-height:1.6}
+.totop{position:fixed;right:18px;bottom:18px;z-index:45;width:50px;height:50px;border-radius:16px;border:1px solid #ffffff22;background:#16121fe6;backdrop-filter:blur(8px);display:grid;place-items:center;opacity:0;transform:translateY(20px);pointer-events:none;transition:.3s;box-shadow:0 10px 30px #000a}
+.totop.on{opacity:1;transform:none;pointer-events:auto}
+.totop svg{width:22px;height:22px}
+.totop:hover{border-color:var(--fire);color:var(--fire)}
+body.noclaude #comunidad,body.noclaude #navComm{display:none!important}
 .shead{display:flex;gap:16px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px}
 .shead h2{font-size:clamp(28px,4.2vw,46px)}
 .shead p{margin:10px 0 0;color:var(--soft);max-width:60ch}
@@ -215,7 +260,7 @@ ol.inst{margin:0;padding-left:22px}ol.inst li{margin:8px 0}
 .post div{padding:12px 14px;display:flex;flex-direction:column;gap:2px}
 .post b{font-size:16px}.post small{color:var(--soft);font-weight:700}
 .post button{align-self:flex-start;margin-top:6px;border:1px solid var(--line);background:none;border-radius:10px;padding:0 10px;min-height:36px;font-weight:800;color:var(--soft)}
-@media(max-width:860px){.logo{margin-right:auto}.links{order:9;flex:0 0 100%;margin:0;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding:0 0 10px;scrollbar-width:none;-webkit-mask:linear-gradient(90deg,#000 85%,transparent)}.links::-webkit-scrollbar{display:none}.links a{flex:none;font-size:14px;padding:7px 12px;border-radius:999px;background:#ffffff0d;border:1px solid #ffffff14}html{scroll-padding-top:118px}.hero .wrap{padding-top:126px}}
+@media(max-width:1199px){.logo{margin-right:auto}.links{order:9;flex:0 0 100%;margin:0;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding:0 0 10px;scrollbar-width:none;-webkit-mask:linear-gradient(90deg,#000 85%,transparent)}.links::-webkit-scrollbar{display:none}.links a{flex:none;font-size:14px;padding:7px 12px;border-radius:999px;background:#ffffff0d;border:1px solid #ffffff14}html{scroll-padding-top:118px}.hero .wrap{padding-top:126px}}
 @media(max-width:360px){.logo span{display:none}nav .wrap{gap:6px!important}.ctl{min-width:40px;min-height:40px;padding:0 6px}.mine{min-height:40px}}
 @media(max-width:480px){nav .wrap{gap:8px}.logo{font-size:14px}.logo img{width:28px;height:28px}.mine [data-i]{display:none}.mine{padding:0 12px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
@@ -224,7 +269,7 @@ ol.inst{margin:0;padding-left:22px}ol.inst li{margin:8px 0}
 <body>
 <nav><div class="wrap">
   <a class="logo" href="#inicio"><img src="logo.svg" alt="" width="32" height="32"><span>Chill Skills</span></a>
-  <div class="links"><a href="#roblox" data-i="nav_roblox"></a><a href="#builds" data-i="nav_builds"></a><a href="#todas" data-i="nav_skills"></a><a href="#tutoriales" data-i="nav_tut"></a><a href="#comunidad" data-i="nav_comm"></a><a href="#instalar" data-i="nav_install"></a></div>
+  <div class="links"><a href="#roblox" data-i="nav_roblox"></a><a href="#builds" data-i="nav_builds"></a><a href="#todas" data-i="nav_skills"></a><a href="#tutoriales" data-i="nav_tut"></a><a href="#prompts" data-i="nav_pr"></a><a href="#vaults" data-i="nav_vl"></a><a href="#comunidad" data-i="nav_comm" id="navComm"></a><a href="#instalar" data-i="nav_install"></a><a href="#faq" data-i="nav_faq"></a></div>
   <select class="ctl" id="lang" aria-label="Idioma / Language"><option value="es">ES</option><option value="en">EN</option><option value="pt">PT</option><option value="fr">FR</option></select>
   <button class="ctl" id="mus" type="button" aria-pressed="true"></button><button class="ctl" id="snd" type="button" aria-pressed="true"></button>
   <button class="mine" id="mineBtn" type="button"><span data-i="mine"></span> · <span id="mineN">0</span></button>
@@ -273,6 +318,20 @@ ol.inst{margin:0;padding-left:22px}ol.inst li{margin:8px 0}
   <div id="vids"></div>
 </div></section>
 
+<section class="band" id="prompts"><div class="wrap">
+  <div class="shead"><div><h2 data-i="pr_title"></h2><p data-i="pr_sub"></p></div></div>
+  <div class="bar" id="prBar" role="toolbar"></div>
+  <div class="pgrid" id="pgrid"></div>
+</div></section>
+
+<section class="band vlt" id="vaults"><div class="wrap">
+  <div class="shead"><div><h2 data-i="vl_title"></h2><p data-i="vl_sub"></p></div></div>
+  <div class="vsteps"><span><b>1</b><span data-i="vl_s1"></span></span><span><b>2</b><span data-i="vl_s2"></span></span><span><b>3</b><span data-i="vl_s3"></span></span></div>
+  <div class="vgrid2" id="vgrid"></div>
+  <h3 class="vgroup" data-i="vl_com"></h3>
+  <div class="vcom" id="vcom"></div>
+</div></section>
+
 <section class="band comm" id="comunidad"><div class="wrap">
   <div class="shead"><div><h2 data-i="cm_title"></h2><p data-i="cm_sub"></p></div></div>
   <div class="cmnote" id="cmNote"></div>
@@ -290,7 +349,7 @@ ol.inst{margin:0;padding-left:22px}ol.inst li{margin:8px 0}
 
 <section class="band" id="instalar"><div class="wrap">
   <div class="shead"><div><h2 data-i="how_title"></h2></div></div>
-  <div class="promo"><video id="promo" src="media/install.mp4" poster="media/install.jpg" controls playsinline preload="metadata"></video></div>
+  <div class="promo"><video id="promo" src="media/install-en.mp4" poster="media/install-en.jpg" controls playsinline preload="metadata"></video></div>
   <div class="steps">
     <div class="step" style="--h:#ff7a1a"><b>1</b><h3 data-i="s1t"></h3><p data-i="s1"></p></div>
     <div class="step" style="--h:#38e1ff"><b>2</b><h3 data-i="s2t"></h3><p data-i="s2"></p></div>
@@ -299,6 +358,12 @@ ol.inst{margin:0;padding-left:22px}ol.inst li{margin:8px 0}
   <p class="warnbox" data-i="note"></p>
 </div></section>
 
+<section class="band" id="faq"><div class="wrap">
+  <div class="shead"><div><h2 data-i="faq_title"></h2></div></div>
+  <div class="faq" id="faqList"></div>
+</div></section>
+
+<button class="totop" id="totop" type="button" aria-label="↑"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 <footer><div class="wrap"><span data-i="foot"></span><span data-i="sample"></span></div></footer>
 
 <dialog id="dlg" aria-labelledby="dTitle"><div class="dwrap">
@@ -332,6 +397,53 @@ pt:{nav_builds:'Builds',nav_comm:'Comunidade',b_title:'Builds de Roblox',b_sub:'
  i_m1:'No Claude abra <b>Customize</b> e em <b>Personal plugins</b> clique em <b>+</b> → adicionar marketplace.',i_m2:'Cole este endereço (só na primeira vez):',i_m3:'Procure <b>{n}</b> e clique em <b>+</b>.',i_o1:'Já vem com o Claude: abra <b>Customize → Skills</b>.',i_o2:'Procure <b>{n}</b> nas skills da Anthropic e ative.',i_o3:'Deixe <b>Code execution and file creation</b> ativado nas configurações.',i_c1:'No Claude abra <b>Customize → Personal plugins → +</b> e adicione este marketplace:',i_c2:'Instale <b>{n}</b> da lista.',i_g1:'Abra o GitHub e clique em <b>Code → Download ZIP</b>.',i_g2:'Compacte de novo a pasta que tem o SKILL.md.',i_g3:'No Claude: <b>Customize → Skills → + → Upload a skill</b>.',i_gn:'Foi feita principalmente para o Claude Code (aba ao lado).',i_mcp:'É um conector do Roblox Studio, não uma skill. Siga o guia oficial: ative o MCP no Studio e conecte ao Claude Code.',c_off:'Instale o pacote <b>{p}</b>, que inclui {n} e outras.',gh:'Ver no GitHub ↗',guide:'Abrir o guia ↗'},
 fr:{nav_builds:'Builds',nav_comm:'Communauté',b_title:'Builds Roblox',b_sub:'De vrais modèles faits avec la skill LihFolk Stud Voxel. Touche-en un pour le voir en grand.',bf_all:'Tout',bf_pet:'Animaux',bf_boss:'Boss',bf_obj:'Objets',cm_title:'Créations de la communauté',cm_sub:'Envoie une photo de ce que tu as fait avec Claude et une skill : ton jeu, ton modèle ou ton effet.',cm_drop:'Dépose une image ou touche ici',cm_drop2:'PNG ou JPG · réduite automatiquement',cm_name:'Qu\'est-ce que c\'est ?',cm_skill:'Skill utilisée',cm_noskill:'Aucune / autre',cm_send:'Publier',cm_sending:'Envoi...',cm_ok:'Publiée !',cm_err:'Échec de l\'envoi. Réessaie.',cm_notimg:'Ce n\'est pas une image.',cm_empty:'Aucune création pour l\'instant. Sois le premier !',cm_loading:'Chargement des créations...',cm_slow:'Les créations tardent à charger ; elles peuvent ne pas être à jour.',cm_off:'La galerie fonctionne quand la page est ouverte dans Claude avec ton compte. Pour que tes amis publient, partage-la depuis le bouton Partager avec l\'accès Contributor.',cm_view:'Tu peux voir les créations. Pour publier les tiennes, demande l\'accès Contributor au propriétaire.',cm_can:'Publie ta création : tous ceux qui ont accès à cette page la verront.',cm_del:'Supprimer',cm_some:'Quelqu\'un',cm_limit:'12 photos max par personne : la plus ancienne est supprimée.',nav_roblox:'Roblox',nav_skills:'Skills',nav_tut:'Tutoriels',nav_install:'Installer',mine:'Mes skills',h1a:'Donne des',h1b:'superpouvoirs',h1c:'à ton Claude',sub:'Des skills pour créer des jeux Roblox, des documents, du design et du code. Cherche, clique sur Ajouter et Claude apprend.',ph:'Cherche : dragon, boutique, excel, effets...',hint:'Approche la souris de l\'orbe et clique dessus',k_skills:'skills',k_roblox:'pour Roblox',k_lih:'de LihFolk',k_vid:'tutoriels',r_t1:'Coin',r_sub:'Modèles voxel, boss, menus, effets et packs complets de la communauté pour créer des jeux avec Claude.',r_made:'Modèles faits avec LihFolk Stud Voxel.',seg_all:'Tout',seg_mine:'De LihFolk',seg_com:'Communauté',all_title:'Toutes les skills',c_all:'Toutes',c_roblox:'Roblox',c_docs:'Documents',c_design:'Design',c_dev:'Code',c_writing:'Écriture',c_marketing:'Marketing',c_productivity:'Productivité',add:'Ajouter',added:'✓ Ajoutée',view:'Voir',by:'par',needs:'Requiert',b_mine:'LihFolk',b_off:'Officiel',b_com:'Communauté',try:'Essaie de demander :',tab_app:'Appli Claude',tab_code:'Claude Code',have:'✓ Je l\'ai dans Claude',unhave:'Retirer de mes skills',copy:'Copier',copied:'Copié !',copyfail:'Impossible de copier : sélectionne-le',empty:'Aucune skill ne correspond.',empty_mine:'Aucune pour l\'instant. Clique sur Ajouter.',t_added:'ajoutée à tes skills',t_removed:'Retirée de tes skills',tut_title:'Tutoriels',tut_sub:'Des vidéos pour apprendre à utiliser et créer des skills, et faire des jeux Roblox avec Claude Code. La plupart sont en anglais.',g_skills:'Skills Claude',g_roblox:'Roblox + Claude Code',watch:'Voir sur YouTube ↗',read:'Lire le guide ↗',searchyt:'Chercher sur YouTube ↗',how_title:'Comment installer',s1t:'Clique sur Ajouter',s1:'Chaque skill explique comment l\'installer dans l\'appli Claude ou Claude Code, avec un bouton copier.',s2t:'Ajoute-la à Claude',s2:'Dans l\'appli : Customize → Skills ou Personal plugins. Dans Claude Code : une ou deux commandes.',s3t:'Demande',s3:'Dis ce que tu veux et Claude utilise la skill tout seul.',note:'N\'installe que des skills de confiance : elles peuvent exécuter du code. Celles de la communauté appartiennent à leurs auteurs ; on ne fait que les lier.',foot:'Chill Skills · LihFolk, Anthropic et la communauté',sample:'L\'adresse lihfolk/chill-skills est un exemple en attendant la publication du dépôt.',descnote:'Les descriptions des skills sont en anglais.',
  i_m1:'Dans Claude ouvre <b>Customize</b> et dans <b>Personal plugins</b> clique sur <b>+</b> → ajouter un marketplace.',i_m2:'Colle cette adresse (la première fois seulement) :',i_m3:'Cherche <b>{n}</b> et clique sur <b>+</b>.',i_o1:'Elle est incluse dans Claude : ouvre <b>Customize → Skills</b>.',i_o2:'Cherche <b>{n}</b> parmi les skills d\'Anthropic et active-la.',i_o3:'Garde <b>Code execution and file creation</b> activé dans les réglages.',i_c1:'Dans Claude ouvre <b>Customize → Personal plugins → +</b> et ajoute ce marketplace :',i_c2:'Installe <b>{n}</b> depuis la liste.',i_g1:'Ouvre son GitHub et clique sur <b>Code → Download ZIP</b>.',i_g2:'Recompresse le dossier qui contient SKILL.md.',i_g3:'Dans Claude : <b>Customize → Skills → + → Upload a skill</b>.',i_gn:'Elle est pensée surtout pour Claude Code (onglet d\'à côté).',i_mcp:'C\'est un connecteur Roblox Studio, pas une skill. Suis le guide officiel : active le MCP dans Studio et connecte-le à Claude Code.',c_off:'Installe le pack <b>{p}</b>, qui inclut {n} et d\'autres.',gh:'Voir sur GitHub ↗',guide:'Ouvrir le guide ↗'}};
+
+Object.assign(T.es,{dice:'Sorpréndeme',nav_pr:'Prompts',nav_faq:'Dudas',pr_title:'Prompts para copiar',pr_sub:'Ideas listas para pegar en Claude. Funcionan mejor con la skill que pone abajo.',pr_all:'Todos',pr_roblox:'Roblox',pr_create:'Crear',pr_study:'Estudios',pr_use:'Mejor con',faq_title:'Preguntas frecuentes',top:'Arriba'});
+Object.assign(T.en,{dice:'Surprise me',nav_pr:'Prompts',nav_faq:'FAQ',pr_title:'Prompts to copy',pr_sub:'Ready-made ideas to paste into Claude. They work best with the skill shown below.',pr_all:'All',pr_roblox:'Roblox',pr_create:'Create',pr_study:'School',pr_use:'Best with',faq_title:'FAQ',top:'Top'});
+Object.assign(T.pt,{dice:'Surpreenda-me',nav_pr:'Prompts',nav_faq:'Dúvidas',pr_title:'Prompts para copiar',pr_sub:'Ideias prontas para colar no Claude. Funcionam melhor com a skill indicada.',pr_all:'Todos',pr_roblox:'Roblox',pr_create:'Criar',pr_study:'Estudos',pr_use:'Melhor com',faq_title:'Perguntas frequentes',top:'Topo'});
+Object.assign(T.fr,{dice:'Surprends-moi',nav_pr:'Prompts',nav_faq:'FAQ',pr_title:'Prompts à copier',pr_sub:'Des idées prêtes à coller dans Claude. Elles marchent mieux avec la skill indiquée.',pr_all:'Tous',pr_roblox:'Roblox',pr_create:'Créer',pr_study:'Études',pr_use:'Idéal avec',faq_title:'Questions fréquentes',top:'Haut'});
+const PR=[
+ {c:'roblox',e:'🐉',h:'#ff7a1a',s:'lihfolk-stud-voxel',es:'Hazme un dragón de fuego vóxel estilo LEGO para Roblox, con animación de volar y de escupir fuego.',en:'Make me a LEGO-style voxel fire dragon for Roblox, with flying and fire-breathing animations.'},
+ {c:'roblox',e:'👹',h:'#9a5cff',s:'bosses-roblox-studs',es:'Pon el boss Kraken en mi juego: que salga del agua, ataque con tentáculos y tenga barra de vida.',en:'Put the Kraken boss in my game: it rises from the water, attacks with tentacles and has a health bar.'},
+ {c:'roblox',e:'🏃',h:'#ffb52e',s:'folk-treadmills',es:'Crea 6 cintas de correr para mi juego +1 Speed, de Común a Secreta, cada una con más brillo y partículas.',en:'Create 6 treadmills for my +1 Speed game, from Common to Secret, each one with more glow and particles.'},
+ {c:'roblox',e:'🛒',h:'#38e1ff',s:'check-ui-clean-roblox',es:'Diseña la tienda de mi simulador: pestañas, botón de cerrar 3D y tarjetas con precio en gemas.',en:'Design my simulator shop: tabs, a 3D close button and cards with gem prices.'},
+ {c:'roblox',e:'⚡',h:'#ff3d7f',s:'vfxmith',es:'Hazme un efecto de rayo que caiga del cielo y explote en el suelo con onda expansiva.',en:'Make a lightning effect that falls from the sky and explodes on the ground with a shockwave.'},
+ {c:'roblox',e:'💾',h:'#2bd47a',s:'roblox-luau',es:'Escríbeme un script que guarde las monedas y el nivel de cada jugador aunque salga del juego.',en:'Write a script that saves each player\'s coins and level even after they leave the game.'},
+ {c:'create',e:'🌐',h:'#ff7ab6',s:'frontend-design',es:'Hazme una web para mi juego de Roblox con portada, tráiler, actualizaciones y botón de Jugar.',en:'Make a website for my Roblox game with a hero, trailer, updates and a Play button.'},
+ {c:'create',e:'🎨',h:'#b07cff',s:'canvas-design',es:'Diseña un póster para un torneo de mi juego, con premios para el top 3 y fecha.',en:'Design a poster for a tournament in my game, with prizes for the top 3 and the date.'},
+ {c:'create',e:'🎞️',h:'#ff6a3c',s:'pptx',es:'Haz una presentación de 8 diapositivas para enseñar mi juego a mis amigos.',en:'Make an 8-slide deck to show my game to my friends.'},
+ {c:'study',e:'📚',h:'#4f8fff',s:'docx',es:'Hazme un trabajo de 3 páginas sobre la Revolución Industrial, con índice y una tabla de inventos.',en:'Write a 3-page school report about the Industrial Revolution, with a table of contents and an inventions table.'},
+ {c:'study',e:'📊',h:'#2bd47a',s:'xlsx',es:'Crea una hoja de gastos del mes que sume todo sola y me haga un gráfico.',en:'Create a monthly expenses sheet that adds everything up and draws a chart.'},
+ {c:'study',e:'🧠',h:'#ffd23c',s:'llm-council',es:'Explícame las fracciones como si fuera un juego, con 5 ejercicios y sus soluciones.',en:'Explain fractions as if it were a game, with 5 exercises and their answers.'}];
+const FAQ=[
+ {es:['¿Qué es una skill?','Es como un manual que le enseñas a Claude. Cuando se lo pides, la lee sola y hace la tarea mucho mejor: modelos de Roblox, Word, Excel, webs, efectos...'],en:['What is a skill?','It is like a manual you teach Claude. When you ask, it reads it on its own and does the job much better: Roblox models, Word, Excel, websites, effects...']},
+ {es:['¿Es gratis?','Sí. Esta web es gratis y las skills también. Solo necesitas Claude (hay plan gratis, aunque las skills van mejor con Pro).'],en:['Is it free?','Yes. This site is free and so are the skills. You just need Claude (there is a free plan, though skills work best on Pro).']},
+ {es:['¿Cómo instalo una skill?','Pulsa Agregar en la que quieras y sigue los pasos: en la app de Claude se añade desde Customize, y en Claude Code son dos comandos. Mira el vídeo de Instalar.'],en:['How do I install a skill?','Press Add on the one you want and follow the steps: in the Claude app you add it from Customize, and in Claude Code it takes two commands. Watch the Install video.']},
+ {es:['¿Sirve para Roblox Studio?','Sí. Las skills de LihFolk crean modelos vóxel, bosses, cintas y menús listos para Roblox, y con Claude Code puedes conectarlo a Studio.'],en:['Does it work with Roblox Studio?','Yes. LihFolk skills make voxel models, bosses, treadmills and menus ready for Roblox, and with Claude Code you can connect it to Studio.']},
+ {es:['¿Es seguro?','Las oficiales y las de LihFolk sí. Instala solo skills de gente de confianza, porque pueden ejecutar código en tu ordenador.'],en:['Is it safe?','Official and LihFolk skills are. Only install skills from people you trust, because they can run code on your computer.']},
+ {es:['¿Funciona en el móvil?','La web sí. Las skills se usan en la app de Claude; las que crean archivos de Roblox o Blender van mejor en el ordenador.'],en:['Does it work on my phone?','The site does. Skills are used in the Claude app; the ones that make Roblox or Blender files work best on a computer.']}];
+let prc='all';
+function renderPrompts(){const cats=['all','roblox','create','study'];$('prBar').innerHTML=cats.map(c=>'<button class="chip" type="button" data-pc="'+c+'" aria-pressed="'+(prc===c)+'">'+esc(t('pr_'+c))+'</button>').join('');
+ $('pgrid').innerHTML=PR.filter(p=>prc==='all'||p.c===prc).map(p=>{const sk=S.find(x=>x.id===p.s);const txt=dl(p);return '<article class="pcard" style="--h:'+p.h+'"><div class="ph"><i>'+p.e+'</i>'+esc(t('pr_'+p.c))+'</div><q>'+esc(txt)+'</q><div class="pf"><small>'+(sk?esc(t('pr_use'))+': <a href="#" data-open="'+sk.id+'" style="color:'+p.h+'">'+esc(sk.name)+'</a>':'')+'</small><button class="pcopy" type="button" data-pt="'+esc(txt)+'">'+esc(t('copy'))+'</button></div></article>'}).join('');
+ $('faqList').innerHTML=FAQ.map(f=>{const q=f[L]||f.en;return '<details><summary>'+esc(q[0])+'</summary><p>'+esc(q[1])+'</p></details>'}).join('')}
+
+Object.assign(T.es,{nav_vl:'Vaults',vl_title:'Obsidian Vaults',vl_sub:'Cuadernos de notas listos para Obsidian con un CLAUDE.md dentro: Claude Code los lee y sabe cómo ordenar tus ideas, apuntes o juegos.',vl_s1:'Descarga Obsidian gratis',vl_s2:'Descomprime el vault y ábrelo como carpeta',vl_s3:'Abre Claude Code en esa carpeta y pídele cosas',vl_dl:'Descargar vault',vl_com:'Vaults de la comunidad (GitHub)'});
+Object.assign(T.en,{nav_vl:'Vaults',vl_title:'Obsidian Vaults',vl_sub:'Ready-made Obsidian vaults with a CLAUDE.md inside: Claude Code reads it and knows how to organise your ideas, notes or games.',vl_s1:'Download Obsidian for free',vl_s2:'Unzip the vault and open it as a folder',vl_s3:'Open Claude Code in that folder and ask away',vl_dl:'Download vault',vl_com:'Community vaults (GitHub)'});
+Object.assign(T.pt,{nav_vl:'Vaults',vl_title:'Obsidian Vaults',vl_sub:'Cofres de notas prontos para o Obsidian com um CLAUDE.md dentro: o Claude Code lê e sabe organizar suas ideias, anotações ou jogos.',vl_s1:'Baixe o Obsidian grátis',vl_s2:'Descompacte o vault e abra como pasta',vl_s3:'Abra o Claude Code nessa pasta e peça',vl_dl:'Baixar vault',vl_com:'Vaults da comunidade (GitHub)'});
+Object.assign(T.fr,{nav_vl:'Vaults',vl_title:'Obsidian Vaults',vl_sub:'Des coffres de notes prêts pour Obsidian avec un CLAUDE.md : Claude Code le lit et sait ranger tes idées, notes ou jeux.',vl_s1:'Télécharge Obsidian gratuitement',vl_s2:'Décompresse le vault et ouvre-le comme dossier',vl_s3:'Ouvre Claude Code dans ce dossier et demande',vl_dl:'Télécharger le vault',vl_com:'Vaults de la communauté (GitHub)'});
+const VLT=[
+ {f:'Roblox-Dev-Vault',n:'Roblox Dev',h:'#ff7a1a',tg:['Roblox','GDD','Bugs','Updates'],es:'Diseña tus juegos de Roblox: documento de diseño, bosses, tienda, lista de bugs y registro de updates, todo enlazado.',en:'Plan your Roblox games: design doc, bosses, shop, bug list and update log, all linked together.'},
+ {f:'Estudios-Vault',n:'Estudios',h:'#38e1ff',tg:['Apuntes','Exámenes','Repaso'],es:'Apuntes por asignatura, calendario de exámenes y plantilla. Pídele a Claude que te haga preguntas de repaso con tus notas.',en:'Notes by subject, an exam calendar and a template. Ask Claude to quiz you using your own notes.'},
+ {f:'Creador-Vault',n:'Creador',h:'#ff3d7f',tg:['TikTok','YouTube','Guiones'],es:'Banco de ideas, guiones de 30 s con gancho y registro de vídeos publicados con sus visitas.',en:'An idea bank, 30-second scripts with a hook, and a log of published videos and their views.'}];
+const VCOM=[
+ {n:'claudesidian',u:'https://github.com/heyitsnoah/claudesidian',by:'heyitsnoah',es:'Kit de inicio para convertir tu vault en un segundo cerebro con Claude Code.',en:'Starter kit to turn your vault into a second brain with Claude Code.'},
+ {n:'brain-starter',u:'https://github.com/bwhdx/brain-starter',by:'bwhdx',es:'Segundo cerebro con asistente de configuración y comandos como /capture o /weekly-review.',en:'A second brain with a setup wizard and commands like /capture or /weekly-review.'},
+ {n:'obsidian-mind',u:'https://github.com/breferrari/obsidian-mind',by:'breferrari',es:'Vault pensado para dar memoria a agentes como Claude Code.',en:'A vault designed to give agents like Claude Code a memory.'},
+ {n:'claude-obsidian',u:'https://github.com/agricidaniel/claude-obsidian',by:'agricidaniel',es:'Segundo cerebro que se organiza solo con Claude Code.',en:'A self-organising second brain with Claude Code.'},
+ {n:'second-brain-obsidian',u:'https://github.com/dontoisme/second-brain-obsidian',by:'dontoisme',es:'Plantilla con guía rápida para empezar a apuntar en 10 minutos.',en:'A template with a quick start to begin capturing in 10 minutes.'}];
+function renderVaults(){$('vgrid').innerHTML=VLT.map(v=>'<article class="vcard" style="--h:'+v.h+'"><img src="img/o/'+v.f+'.jpg" alt="'+esc(v.n)+'" loading="lazy"><div class="vb"><h3>'+esc(v.n)+'</h3><div class="vt">'+v.tg.map(x=>'<span>'+esc(x)+'</span>').join('')+'</div><p>'+esc(dl(v))+'</p><a class="vdl" href="vaults/'+v.f+'.zip" download>⬇ '+esc(t('vl_dl'))+'</a></div></article>').join('');
+ $('vcom').innerHTML=VCOM.map(v=>'<a href="'+v.u+'" target="_blank" rel="noopener"><b>'+esc(v.n)+'</b><small>'+esc(dl(v))+'</small><i>github.com/'+esc(v.by)+' ↗</i></a>').join('');
+ const s1=document.querySelector('[data-i="vl_s1"]');if(s1)s1.innerHTML='<a href="https://obsidian.md" target="_blank" rel="noopener">'+esc(t('vl_s1'))+' ↗</a>'}
 let L='es';
 try{const s=localStorage.getItem('cs-lang');if(s&&T[s])L=s;else{const n=(navigator.languages||[navigator.language||'es']).map(x=>x.slice(0,2).toLowerCase()).find(x=>T[x]);if(n)L=n}}catch(e){}
 const t=k=>(T[L][k]!==undefined?T[L][k]:T.es[k]);
@@ -408,14 +520,14 @@ const CATS=['roblox','docs','design','dev','writing','marketing','productivity']
 function i18n(){document.documentElement.lang=L;document.querySelectorAll('[data-i]').forEach(e=>{e.textContent=t(e.dataset.i)});
  $('h1').innerHTML=esc(t('h1a'))+' <span>'+esc(t('h1b'))+'</span> '+esc(t('h1c'));$('rTitle').innerHTML=(L==='en'?'<em>Roblox</em> corner':esc(t('r_t1'))+' <em>Roblox</em>');
  $('q').placeholder=t('ph');$('lang').value=L;const dn=t('descnote');$('descnote').hidden=!dn;$('descnote').textContent=dn;
- $('counts').innerHTML='<span class="count"><b>'+S.length+'</b>'+esc(t('k_skills'))+'</span><span class="count"><b>'+S.filter(s=>s.cat==='roblox').length+'</b>'+esc(t('k_roblox'))+'</span><span class="count"><b>'+S.filter(s=>s.src==='mine').length+'</b>'+esc(t('k_lih'))+'</span><span class="count"><b>'+V.length+'</b>'+esc(t('k_vid'))+'</span>';}
+ $('counts').innerHTML='<span class="count"><b>'+S.length+'</b>'+esc(t('k_skills'))+'</span><span class="count"><b>'+S.filter(s=>s.cat==='roblox').length+'</b>'+esc(t('k_roblox'))+'</span><span class="count"><b>'+S.filter(s=>s.src==='mine').length+'</b>'+esc(t('k_lih'))+'</span><span class="count"><b>'+V.length+'</b>'+esc(t('k_vid'))+'</span><button class="count dice" id="dice" type="button">🎲 '+esc(t('dice'))+'</button>';}
 function renderRail(){$('rail').innerHTML=S.filter(s=>s.cat==='roblox'&&(rs==='all'||s.src===rs)).map(card).join('');document.querySelectorAll('[data-rs]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.rs===rs))}
 function renderBar(){$('bar').innerHTML=['all'].concat(CATS).map(k=>'<button class="chip" type="button" data-c="'+k+'" aria-pressed="'+(k===cat)+'" style="--c:'+(CC[k]||'#fff')+'">'+(k==='all'?'':'<i></i>')+esc(t('c_'+k))+'<span>'+(k==='all'?S.length:S.filter(s=>s.cat===k).length)+'</span></button>').join('')}
 function renderGrid(){const q=norm($('q').value.trim());let list=cat==='mine'?S.filter(s=>mine.includes(s.id)):S.filter(s=>(cat==='all'||s.cat===cat)&&(!q||norm(s.name+' '+s.by+' '+s.desc.es+' '+s.desc.en+' '+t('c_'+s.cat)).includes(q)));
  $('grid').innerHTML=list.length?list.map(card).join(''):'<div class="empty">'+esc(cat==='mine'?t('empty_mine'):t('empty'))+'</div>'}
 const PLAY='<svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z" fill="#111"/></svg>';
 function renderVids(){const grp=g=>'<div class="vgroup">'+esc(t('g_'+g))+'</div><div class="vgrid">'+V.filter(v=>v.g===g).map(v=>'<a class="vid" href="'+v.u+'" style="--h:'+v.h+'"><div class="vthumb">'+(v.img?'<img src="'+v.img+'" alt="" loading="lazy">':'')+'<span class="lang">'+esc(v.l)+'</span><div class="play">'+PLAY+'</div><span class="yt">'+(v.doc?'create.roblox.com':'YouTube')+'</span></div><div class="vbody"><h3>'+esc(v.t)+'</h3><span>'+esc(v.doc?t('read'):v.search?t('searchyt'):t('watch'))+'</span></div></a>').join('')+'</div>';$('vids').innerHTML=grp('skills')+grp('roblox')}
-function renderAll(){i18n();renderRail();renderBar();renderGrid();renderVids();renderBuilds();cmOptions();cmRender();$('mineN').textContent=mine.length}
+function renderAll(){i18n();renderPrompts();renderVaults();renderRail();renderBar();renderGrid();renderVids();renderBuilds();cmOptions();cmRender();$('mineN').textContent=mine.length}
 /* ================= ventana ================= */
 const dlg=$('dlg');let cur=null,tab='app';
 const row=x=>'<div class="code"><code>'+esc(x)+'</code><button class="copy" type="button" data-copy="'+esc(x)+'">'+esc(t('copy'))+'</button></div>';
@@ -483,7 +595,7 @@ async function cmRender(){cmNote();const g=$('cgrid');if(!CM.loaded){g.innerHTML
  const ids=[...new Set(CM.posts.map(p=>p.owner))];
  if(CM.user){try{const ps=await CM.user.profiles(ids);ids.forEach(i=>{CM.names[i]=(ps&&ps[i]&&ps[i].name)||''})}catch(e){}}
  g.innerHTML=CM.posts.map((p,i)=>{const sk=S.find(x=>x.id===p.s);const mineP=p.owner===CM.me;return '<article class="post"><img src="'+blobUrl(p.a)+'" alt="'+esc(p.t)+'" loading="lazy" data-cp="'+i+'"><div><b>'+esc(p.t||'—')+'</b><small>'+esc(CM.names[p.owner]||t('cm_some'))+(sk?' · '+esc(sk.name):'')+'</small>'+((mineP||CM.owner)?'<button type="button" data-del="'+i+'">'+esc(t('cm_del'))+'</button>':'')+'</div></article>'}).join('')}
-async function cmInit(){const C=window.claude;if(!C||typeof C.use!=='function'){CM.state='off';cmNote();return}
+async function cmInit(){const C=window.claude;if(!C||typeof C.use!=='function'){CM.state='off';document.body.classList.add('noclaude');cmNote();return}
  const timer=setTimeout(()=>{if(!CM.loaded){CM.state='slow';cmNote()}},10000);
  try{const r=await Promise.all([C.use('user'),C.use('db'),C.use('assets')]);CM.user=r[0];CM.db=r[1];CM.assets=r[2]}catch(e){}
  if(!CM.db){clearTimeout(timer);CM.state='off';cmNote();return}
@@ -585,6 +697,13 @@ cv.addEventListener('pointerdown',e=>{actx();const r=cv.getBoundingClientRect(),
 const io=new IntersectionObserver(es=>{visible=es[0].isIntersecting});io.observe(hero);
 if(RM){for(let i=0;i<60;i++){ember();update(.05)}draw()}else{for(let i=0;i<90;i++)update(1/30);requestAnimationFrame(loop)}
 paintSnd();renderAll();cmInit();
+$('prBar').addEventListener('click',e=>{const b=e.target.closest('[data-pc]');if(!b)return;prc=b.dataset.pc;renderPrompts();sfx('chip')});
+$('pgrid').addEventListener('click',async e=>{const o=e.target.closest('[data-open]');if(o){e.preventDefault();open(o.dataset.open);return}const b=e.target.closest('[data-pt]');if(!b)return;try{await navigator.clipboard.writeText(b.dataset.pt);b.textContent=t('copied');b.classList.add('ok');sfx('copy');toast(t('copied'));setTimeout(()=>{b.textContent=t('copy');b.classList.remove('ok')},1600)}catch(err){toast(t('copyfail'))}});
+document.addEventListener('click',e=>{if(e.target.closest('#dice')){const s=S[Math.floor(Math.random()*S.length)];sfx('chip');open(s.id)}});
+$('faqList').addEventListener('toggle',()=>sfx('chip'),true);
+const tt=$('totop');addEventListener('scroll',()=>tt.classList.toggle('on',scrollY>900),{passive:true});tt.addEventListener('click',()=>{scrollTo({top:0,behavior:'smooth'});sfx('click')});
+document.addEventListener('keydown',e=>{if(e.key==='/'&&!/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)&&!document.querySelector('dialog[open]')){e.preventDefault();$('q').focus();$('q').scrollIntoView({block:'center'})}});
+
 }
 </script>
 </body>
